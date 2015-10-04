@@ -6,17 +6,18 @@
 //  Copyright © 2015年 王落凡. All rights reserved.
 //
 
-#import "AppDelegate.h"
+#import "eBooksAppDelegate.h"
 
-@interface AppDelegate ()
+@interface eBooksAppDelegate ()
 
 @end
 
-@implementation AppDelegate
+@implementation eBooksAppDelegate
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    [NSThread sleepForTimeInterval:1.0f];
     return YES;
 }
 
