@@ -7,6 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2F7D14DF33FD7CEA7A3C7A5D /* libPods-it-eBooks.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FB2DA4A629461EB1B0A4F41B /* libPods-it-eBooks.a */; };
+		B30147601BC2077D00DE17C3 /* eBooksCategoryList.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B301475E1BC2077D00DE17C3 /* eBooksCategoryList.cpp */; settings = {ASSET_TAGS = (); }; };
+		B30147661BC21C5C00DE17C3 /* eBooksCategoryChooseTableViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = B30147651BC21C5C00DE17C3 /* eBooksCategoryChooseTableViewController.mm */; settings = {ASSET_TAGS = (); }; };
+		B301476E1BC2568700DE17C3 /* eBooksSearchViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = B301476B1BC2568700DE17C3 /* eBooksSearchViewController.mm */; settings = {ASSET_TAGS = (); }; };
+		B301476F1BC2568700DE17C3 /* eBooksSearchKeywordLabelView.m in Sources */ = {isa = PBXBuildFile; fileRef = B301476D1BC2568700DE17C3 /* eBooksSearchKeywordLabelView.m */; settings = {ASSET_TAGS = (); }; };
+		B305E8441BC0A6B900F16779 /* eBooksRecommendViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = B305E8431BC0A6B900F16779 /* eBooksRecommendViewController.mm */; settings = {ASSET_TAGS = (); }; };
+		B305E84A1BC0A6D900F16779 /* eBooksInteractionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B305E8491BC0A6D900F16779 /* eBooksInteractionViewController.m */; settings = {ASSET_TAGS = (); }; };
+		B305E84D1BC0A6EC00F16779 /* eBooksPersonViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = B305E84C1BC0A6EC00F16779 /* eBooksPersonViewController.mm */; settings = {ASSET_TAGS = (); }; };
+		B305E8531BC0A79E00F16779 /* eBooksNetworkingHelper.mm in Sources */ = {isa = PBXBuildFile; fileRef = B305E8521BC0A79E00F16779 /* eBooksNetworkingHelper.mm */; settings = {ASSET_TAGS = (); }; };
+		B305E8571BC0A7B700F16779 /* eBooksDatabaseHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = B305E8561BC0A7B700F16779 /* eBooksDatabaseHelper.m */; settings = {ASSET_TAGS = (); }; };
 		B32750311BC0114000DC81F8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B32750301BC0114000DC81F8 /* main.m */; };
 		B32750341BC0114000DC81F8 /* eBooksAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B32750331BC0114000DC81F8 /* eBooksAppDelegate.m */; };
 		B327503A1BC0114000DC81F8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B32750381BC0114000DC81F8 /* Main.storyboard */; };
@@ -14,6 +24,18 @@
 		B327503F1BC0114000DC81F8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B327503D1BC0114000DC81F8 /* LaunchScreen.storyboard */; };
 		B327504A1BC0114100DC81F8 /* it_eBooksTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B32750491BC0114100DC81F8 /* it_eBooksTests.m */; };
 		B32750551BC0114100DC81F8 /* it_eBooksUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = B32750541BC0114100DC81F8 /* it_eBooksUITests.m */; };
+		B36B6FB31BCE6ACA0058BCF5 /* eBooksPreviewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = B36B6FB21BCE6ACA0058BCF5 /* eBooksPreviewController.mm */; settings = {ASSET_TAGS = (); }; };
+		B3963D761BCA8E2F0018215B /* eBooksSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3963D751BCA8E2F0018215B /* eBooksSettingsViewController.m */; settings = {ASSET_TAGS = (); }; };
+		B3963D7A1BCA92320018215B /* eBooksUserHeaderView.mm in Sources */ = {isa = PBXBuildFile; fileRef = B3963D791BCA92320018215B /* eBooksUserHeaderView.mm */; settings = {ASSET_TAGS = (); }; };
+		B3963D7E1BCAA91A0018215B /* eBooksUserInfo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B3963D7C1BCAA91A0018215B /* eBooksUserInfo.cpp */; settings = {ASSET_TAGS = (); }; };
+		B3C877C01BC4D51F0055AE24 /* eBooksSearchTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B3C877BF1BC4D51F0055AE24 /* eBooksSearchTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
+		B3C877C41BC5454E0055AE24 /* eBooksSingleBookDetailInfo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B3C877C21BC5454E0055AE24 /* eBooksSingleBookDetailInfo.cpp */; settings = {ASSET_TAGS = (); }; };
+		B3D340171BC2BF8E00151917 /* eBooksSearchResultList.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B3D340151BC2BF8E00151917 /* eBooksSearchResultList.cpp */; settings = {ASSET_TAGS = (); }; };
+		B3D3401A1BC2BFAB00151917 /* eBooksSearchResultItem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B3D340181BC2BFAB00151917 /* eBooksSearchResultItem.cpp */; settings = {ASSET_TAGS = (); }; };
+		B3E361691BC6A8B000405D4B /* eBooksSingleBookDetailTableHeaderViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E361641BC6A8B000405D4B /* eBooksSingleBookDetailTableHeaderViewCell.m */; settings = {ASSET_TAGS = (); }; };
+		B3E3616A1BC6A8B000405D4B /* eBooksSingleBookDetailTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E361661BC6A8B000405D4B /* eBooksSingleBookDetailTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
+		B3E361711BC6A94200405D4B /* eBooksSingleBookDetailViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = B3E361701BC6A94200405D4B /* eBooksSingleBookDetailViewController.mm */; settings = {ASSET_TAGS = (); }; };
+		B3E361751BC6BA8000405D4B /* eBooksImagePreviewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E361741BC6BA8000405D4B /* eBooksImagePreviewController.m */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +56,27 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8190E7F2B90A0FB85E95CE52 /* Pods-it-eBooks.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-it-eBooks.debug.xcconfig"; path = "Pods/Target Support Files/Pods-it-eBooks/Pods-it-eBooks.debug.xcconfig"; sourceTree = "<group>"; };
+		8C613352F1D074A6BBB30250 /* Pods-it-eBooks.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-it-eBooks.release.xcconfig"; path = "Pods/Target Support Files/Pods-it-eBooks/Pods-it-eBooks.release.xcconfig"; sourceTree = "<group>"; };
+		B301475E1BC2077D00DE17C3 /* eBooksCategoryList.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = eBooksCategoryList.cpp; sourceTree = "<group>"; };
+		B301475F1BC2077D00DE17C3 /* eBooksCategoryList.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = eBooksCategoryList.hpp; sourceTree = "<group>"; };
+		B30147641BC21C5C00DE17C3 /* eBooksCategoryChooseTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = eBooksCategoryChooseTableViewController.h; sourceTree = "<group>"; };
+		B30147651BC21C5C00DE17C3 /* eBooksCategoryChooseTableViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = eBooksCategoryChooseTableViewController.mm; sourceTree = "<group>"; };
+		B30147671BC21D3800DE17C3 /* eBooks_prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = eBooks_prefix.pch; sourceTree = "<group>"; };
+		B301476A1BC2568700DE17C3 /* eBooksSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = eBooksSearchViewController.h; sourceTree = "<group>"; };
+		B301476B1BC2568700DE17C3 /* eBooksSearchViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = eBooksSearchViewController.mm; sourceTree = "<group>"; };
+		B301476C1BC2568700DE17C3 /* eBooksSearchKeywordLabelView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = eBooksSearchKeywordLabelView.h; sourceTree = "<group>"; };
+		B301476D1BC2568700DE17C3 /* eBooksSearchKeywordLabelView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = eBooksSearchKeywordLabelView.m; sourceTree = "<group>"; };
+		B305E8421BC0A6B900F16779 /* eBooksRecommendViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = eBooksRecommendViewController.h; sourceTree = "<group>"; };
+		B305E8431BC0A6B900F16779 /* eBooksRecommendViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = eBooksRecommendViewController.mm; sourceTree = "<group>"; };
+		B305E8481BC0A6D900F16779 /* eBooksInteractionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = eBooksInteractionViewController.h; sourceTree = "<group>"; };
+		B305E8491BC0A6D900F16779 /* eBooksInteractionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = eBooksInteractionViewController.m; sourceTree = "<group>"; };
+		B305E84B1BC0A6EC00F16779 /* eBooksPersonViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = eBooksPersonViewController.h; sourceTree = "<group>"; };
+		B305E84C1BC0A6EC00F16779 /* eBooksPersonViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = eBooksPersonViewController.mm; sourceTree = "<group>"; };
+		B305E8511BC0A79E00F16779 /* eBooksNetworkingHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = eBooksNetworkingHelper.h; sourceTree = "<group>"; };
+		B305E8521BC0A79E00F16779 /* eBooksNetworkingHelper.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = eBooksNetworkingHelper.mm; sourceTree = "<group>"; };
+		B305E8551BC0A7B700F16779 /* eBooksDatabaseHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = eBooksDatabaseHelper.h; sourceTree = "<group>"; };
+		B305E8561BC0A7B700F16779 /* eBooksDatabaseHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = eBooksDatabaseHelper.m; sourceTree = "<group>"; };
 		B327502C1BC0114000DC81F8 /* it-eBooks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "it-eBooks.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B32750301BC0114000DC81F8 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		B32750321BC0114000DC81F8 /* eBooksAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = eBooksAppDelegate.h; sourceTree = "<group>"; };
@@ -48,6 +91,34 @@
 		B32750501BC0114100DC81F8 /* it-eBooksUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "it-eBooksUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B32750541BC0114100DC81F8 /* it_eBooksUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = it_eBooksUITests.m; sourceTree = "<group>"; };
 		B32750561BC0114100DC81F8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B34A41141BCD487800A63691 /* QuickLook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuickLook.framework; path = System/Library/Frameworks/QuickLook.framework; sourceTree = SDKROOT; };
+		B35BC2491BD14F1B00CE4FD3 /* libcommonCrypto.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libcommonCrypto.tbd; path = usr/lib/system/libcommonCrypto.tbd; sourceTree = SDKROOT; };
+		B36B6FB11BCE6ACA0058BCF5 /* eBooksPreviewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = eBooksPreviewController.h; sourceTree = "<group>"; };
+		B36B6FB21BCE6ACA0058BCF5 /* eBooksPreviewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = eBooksPreviewController.mm; sourceTree = "<group>"; };
+		B39477031BCFD2DA0007D211 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		B3963D741BCA8E2F0018215B /* eBooksSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = eBooksSettingsViewController.h; sourceTree = "<group>"; };
+		B3963D751BCA8E2F0018215B /* eBooksSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = eBooksSettingsViewController.m; sourceTree = "<group>"; };
+		B3963D781BCA92320018215B /* eBooksUserHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = eBooksUserHeaderView.h; sourceTree = "<group>"; };
+		B3963D791BCA92320018215B /* eBooksUserHeaderView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = eBooksUserHeaderView.mm; sourceTree = "<group>"; };
+		B3963D7C1BCAA91A0018215B /* eBooksUserInfo.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = eBooksUserInfo.cpp; sourceTree = "<group>"; };
+		B3963D7D1BCAA91A0018215B /* eBooksUserInfo.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = eBooksUserInfo.hpp; sourceTree = "<group>"; };
+		B3C877BE1BC4D51F0055AE24 /* eBooksSearchTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = eBooksSearchTableViewCell.h; sourceTree = "<group>"; };
+		B3C877BF1BC4D51F0055AE24 /* eBooksSearchTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = eBooksSearchTableViewCell.m; sourceTree = "<group>"; };
+		B3C877C21BC5454E0055AE24 /* eBooksSingleBookDetailInfo.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = eBooksSingleBookDetailInfo.cpp; sourceTree = "<group>"; };
+		B3C877C31BC5454E0055AE24 /* eBooksSingleBookDetailInfo.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = eBooksSingleBookDetailInfo.hpp; sourceTree = "<group>"; };
+		B3D340151BC2BF8E00151917 /* eBooksSearchResultList.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = eBooksSearchResultList.cpp; sourceTree = "<group>"; };
+		B3D340161BC2BF8E00151917 /* eBooksSearchResultList.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = eBooksSearchResultList.hpp; sourceTree = "<group>"; };
+		B3D340181BC2BFAB00151917 /* eBooksSearchResultItem.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = eBooksSearchResultItem.cpp; sourceTree = "<group>"; };
+		B3D340191BC2BFAB00151917 /* eBooksSearchResultItem.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = eBooksSearchResultItem.hpp; sourceTree = "<group>"; };
+		B3E361631BC6A8B000405D4B /* eBooksSingleBookDetailTableHeaderViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = eBooksSingleBookDetailTableHeaderViewCell.h; sourceTree = "<group>"; };
+		B3E361641BC6A8B000405D4B /* eBooksSingleBookDetailTableHeaderViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = eBooksSingleBookDetailTableHeaderViewCell.m; sourceTree = "<group>"; };
+		B3E361651BC6A8B000405D4B /* eBooksSingleBookDetailTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = eBooksSingleBookDetailTableViewCell.h; sourceTree = "<group>"; };
+		B3E361661BC6A8B000405D4B /* eBooksSingleBookDetailTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = eBooksSingleBookDetailTableViewCell.m; sourceTree = "<group>"; };
+		B3E3616F1BC6A94200405D4B /* eBooksSingleBookDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = eBooksSingleBookDetailViewController.h; sourceTree = "<group>"; };
+		B3E361701BC6A94200405D4B /* eBooksSingleBookDetailViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = eBooksSingleBookDetailViewController.mm; sourceTree = "<group>"; };
+		B3E361731BC6BA8000405D4B /* eBooksImagePreviewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = eBooksImagePreviewController.h; sourceTree = "<group>"; };
+		B3E361741BC6BA8000405D4B /* eBooksImagePreviewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = eBooksImagePreviewController.m; sourceTree = "<group>"; };
+		FB2DA4A629461EB1B0A4F41B /* libPods-it-eBooks.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-it-eBooks.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +126,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2F7D14DF33FD7CEA7A3C7A5D /* libPods-it-eBooks.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -75,6 +147,57 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7679A1204707F89FB17B2D12 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				8190E7F2B90A0FB85E95CE52 /* Pods-it-eBooks.debug.xcconfig */,
+				8C613352F1D074A6BBB30250 /* Pods-it-eBooks.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		A80604C80D0F3DD6D4B5EA91 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B35BC2491BD14F1B00CE4FD3 /* libcommonCrypto.tbd */,
+				B39477031BCFD2DA0007D211 /* Security.framework */,
+				B34A41141BCD487800A63691 /* QuickLook.framework */,
+				FB2DA4A629461EB1B0A4F41B /* libPods-it-eBooks.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B301475D1BC2076D00DE17C3 /* C++ */ = {
+			isa = PBXGroup;
+			children = (
+				B3963D7B1BCAA9070018215B /* UserInfo */,
+				B3C877C11BC545400055AE24 /* BookDetailInfo */,
+				B3D340141BC2BDA800151917 /* Search */,
+				B3D340131BC2BD9C00151917 /* Category */,
+			);
+			name = "C++";
+			sourceTree = "<group>";
+		};
+		B30147681BC2563100DE17C3 /* Recommend */ = {
+			isa = PBXGroup;
+			children = (
+				B305E8421BC0A6B900F16779 /* eBooksRecommendViewController.h */,
+				B305E8431BC0A6B900F16779 /* eBooksRecommendViewController.mm */,
+			);
+			name = Recommend;
+			sourceTree = "<group>";
+		};
+		B30147691BC2565500DE17C3 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				B301476A1BC2568700DE17C3 /* eBooksSearchViewController.h */,
+				B301476B1BC2568700DE17C3 /* eBooksSearchViewController.mm */,
+				B301476C1BC2568700DE17C3 /* eBooksSearchKeywordLabelView.h */,
+				B301476D1BC2568700DE17C3 /* eBooksSearchKeywordLabelView.m */,
+			);
+			name = Search;
+			sourceTree = "<group>";
+		};
 		B305E83E1BC0A4F500F16779 /* AppDelegate */ = {
 			isa = PBXGroup;
 			children = (
@@ -84,6 +207,50 @@
 			name = AppDelegate;
 			sourceTree = "<group>";
 		};
+		B305E8411BC0A68500F16779 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				B34A41171BCD4CE900A63691 /* PDFPreview */,
+				B3963D721BCA89C20018215B /* Interaction */,
+				B3963D711BCA83A50018215B /* Ｍe */,
+				B3E361721BC6BA6B00405D4B /* ImagePreview */,
+				B3E361621BC6A8A600405D4B /* BookDetail */,
+				B30147691BC2565500DE17C3 /* Search */,
+				B30147681BC2563100DE17C3 /* Recommend */,
+				B30147641BC21C5C00DE17C3 /* eBooksCategoryChooseTableViewController.h */,
+				B30147651BC21C5C00DE17C3 /* eBooksCategoryChooseTableViewController.mm */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		B305E84E1BC0A75900F16779 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B34A41091BCD296700A63691 /* Preview */,
+				B3963D771BCA92180018215B /* Person */,
+				B3C877BD1BC4D5060055AE24 /* Search */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		B305E84F1BC0A76500F16779 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				B305E8511BC0A79E00F16779 /* eBooksNetworkingHelper.h */,
+				B305E8521BC0A79E00F16779 /* eBooksNetworkingHelper.mm */,
+			);
+			name = Networking;
+			sourceTree = "<group>";
+		};
+		B305E8541BC0A7A400F16779 /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				B305E8551BC0A7B700F16779 /* eBooksDatabaseHelper.h */,
+				B305E8561BC0A7B700F16779 /* eBooksDatabaseHelper.m */,
+			);
+			name = Database;
+			sourceTree = "<group>";
+		};
 		B32750231BC0114000DC81F8 = {
 			isa = PBXGroup;
 			children = (
@@ -91,6 +258,8 @@
 				B32750481BC0114100DC81F8 /* it-eBooksTests */,
 				B32750531BC0114100DC81F8 /* it-eBooksUITests */,
 				B327502D1BC0114000DC81F8 /* Products */,
+				7679A1204707F89FB17B2D12 /* Pods */,
+				A80604C80D0F3DD6D4B5EA91 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -107,6 +276,11 @@
 		B327502E1BC0114000DC81F8 /* it-eBooks */ = {
 			isa = PBXGroup;
 			children = (
+				B301475D1BC2076D00DE17C3 /* C++ */,
+				B305E8541BC0A7A400F16779 /* Database */,
+				B305E84F1BC0A76500F16779 /* Networking */,
+				B305E84E1BC0A75900F16779 /* Views */,
+				B305E8411BC0A68500F16779 /* Controllers */,
 				B305E83E1BC0A4F500F16779 /* AppDelegate */,
 				B32750381BC0114000DC81F8 /* Main.storyboard */,
 				B327503B1BC0114000DC81F8 /* Assets.xcassets */,
@@ -121,6 +295,7 @@
 			isa = PBXGroup;
 			children = (
 				B32750301BC0114000DC81F8 /* main.m */,
+				B30147671BC21D3800DE17C3 /* eBooks_prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -143,6 +318,128 @@
 			path = "it-eBooksUITests";
 			sourceTree = "<group>";
 		};
+		B34A41091BCD296700A63691 /* Preview */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Preview;
+			sourceTree = "<group>";
+		};
+		B34A41171BCD4CE900A63691 /* PDFPreview */ = {
+			isa = PBXGroup;
+			children = (
+				B36B6FB11BCE6ACA0058BCF5 /* eBooksPreviewController.h */,
+				B36B6FB21BCE6ACA0058BCF5 /* eBooksPreviewController.mm */,
+			);
+			name = PDFPreview;
+			sourceTree = "<group>";
+		};
+		B3963D711BCA83A50018215B /* Ｍe */ = {
+			isa = PBXGroup;
+			children = (
+				B3963D731BCA8E160018215B /* Settings */,
+				B305E84B1BC0A6EC00F16779 /* eBooksPersonViewController.h */,
+				B305E84C1BC0A6EC00F16779 /* eBooksPersonViewController.mm */,
+			);
+			name = "Ｍe";
+			sourceTree = "<group>";
+		};
+		B3963D721BCA89C20018215B /* Interaction */ = {
+			isa = PBXGroup;
+			children = (
+				B305E8481BC0A6D900F16779 /* eBooksInteractionViewController.h */,
+				B305E8491BC0A6D900F16779 /* eBooksInteractionViewController.m */,
+			);
+			name = Interaction;
+			sourceTree = "<group>";
+		};
+		B3963D731BCA8E160018215B /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				B3963D741BCA8E2F0018215B /* eBooksSettingsViewController.h */,
+				B3963D751BCA8E2F0018215B /* eBooksSettingsViewController.m */,
+			);
+			name = Settings;
+			sourceTree = "<group>";
+		};
+		B3963D771BCA92180018215B /* Person */ = {
+			isa = PBXGroup;
+			children = (
+				B3963D781BCA92320018215B /* eBooksUserHeaderView.h */,
+				B3963D791BCA92320018215B /* eBooksUserHeaderView.mm */,
+			);
+			name = Person;
+			sourceTree = "<group>";
+		};
+		B3963D7B1BCAA9070018215B /* UserInfo */ = {
+			isa = PBXGroup;
+			children = (
+				B3963D7C1BCAA91A0018215B /* eBooksUserInfo.cpp */,
+				B3963D7D1BCAA91A0018215B /* eBooksUserInfo.hpp */,
+			);
+			name = UserInfo;
+			sourceTree = "<group>";
+		};
+		B3C877BD1BC4D5060055AE24 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				B3C877BE1BC4D51F0055AE24 /* eBooksSearchTableViewCell.h */,
+				B3C877BF1BC4D51F0055AE24 /* eBooksSearchTableViewCell.m */,
+			);
+			name = Search;
+			sourceTree = "<group>";
+		};
+		B3C877C11BC545400055AE24 /* BookDetailInfo */ = {
+			isa = PBXGroup;
+			children = (
+				B3C877C21BC5454E0055AE24 /* eBooksSingleBookDetailInfo.cpp */,
+				B3C877C31BC5454E0055AE24 /* eBooksSingleBookDetailInfo.hpp */,
+			);
+			name = BookDetailInfo;
+			sourceTree = "<group>";
+		};
+		B3D340131BC2BD9C00151917 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				B301475E1BC2077D00DE17C3 /* eBooksCategoryList.cpp */,
+				B301475F1BC2077D00DE17C3 /* eBooksCategoryList.hpp */,
+			);
+			name = Category;
+			sourceTree = "<group>";
+		};
+		B3D340141BC2BDA800151917 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				B3D340151BC2BF8E00151917 /* eBooksSearchResultList.cpp */,
+				B3D340161BC2BF8E00151917 /* eBooksSearchResultList.hpp */,
+				B3D340181BC2BFAB00151917 /* eBooksSearchResultItem.cpp */,
+				B3D340191BC2BFAB00151917 /* eBooksSearchResultItem.hpp */,
+			);
+			name = Search;
+			sourceTree = "<group>";
+		};
+		B3E361621BC6A8A600405D4B /* BookDetail */ = {
+			isa = PBXGroup;
+			children = (
+				B3E361631BC6A8B000405D4B /* eBooksSingleBookDetailTableHeaderViewCell.h */,
+				B3E361641BC6A8B000405D4B /* eBooksSingleBookDetailTableHeaderViewCell.m */,
+				B3E361651BC6A8B000405D4B /* eBooksSingleBookDetailTableViewCell.h */,
+				B3E361661BC6A8B000405D4B /* eBooksSingleBookDetailTableViewCell.m */,
+				B3E3616F1BC6A94200405D4B /* eBooksSingleBookDetailViewController.h */,
+				B3E361701BC6A94200405D4B /* eBooksSingleBookDetailViewController.mm */,
+			);
+			name = BookDetail;
+			sourceTree = "<group>";
+		};
+		B3E361721BC6BA6B00405D4B /* ImagePreview */ = {
+			isa = PBXGroup;
+			children = (
+				B3E361731BC6BA8000405D4B /* eBooksImagePreviewController.h */,
+				B3E361741BC6BA8000405D4B /* eBooksImagePreviewController.m */,
+			);
+			name = ImagePreview;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -150,9 +447,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B32750591BC0114100DC81F8 /* Build configuration list for PBXNativeTarget "it-eBooks" */;
 			buildPhases = (
+				C66A01AB3D9AD1D5C8AA0833 /* Check Pods Manifest.lock */,
 				B32750281BC0114000DC81F8 /* Sources */,
 				B32750291BC0114000DC81F8 /* Frameworks */,
 				B327502A1BC0114000DC81F8 /* Resources */,
+				EB46173F460A26501E49D67C /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -271,13 +570,67 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		C66A01AB3D9AD1D5C8AA0833 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		EB46173F460A26501E49D67C /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-it-eBooks/Pods-it-eBooks-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		B32750281BC0114000DC81F8 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B3C877C01BC4D51F0055AE24 /* eBooksSearchTableViewCell.m in Sources */,
+				B3963D7A1BCA92320018215B /* eBooksUserHeaderView.mm in Sources */,
+				B305E84D1BC0A6EC00F16779 /* eBooksPersonViewController.mm in Sources */,
+				B305E8571BC0A7B700F16779 /* eBooksDatabaseHelper.m in Sources */,
+				B3963D7E1BCAA91A0018215B /* eBooksUserInfo.cpp in Sources */,
+				B36B6FB31BCE6ACA0058BCF5 /* eBooksPreviewController.mm in Sources */,
 				B32750341BC0114000DC81F8 /* eBooksAppDelegate.m in Sources */,
+				B3D3401A1BC2BFAB00151917 /* eBooksSearchResultItem.cpp in Sources */,
+				B3E3616A1BC6A8B000405D4B /* eBooksSingleBookDetailTableViewCell.m in Sources */,
+				B3E361691BC6A8B000405D4B /* eBooksSingleBookDetailTableHeaderViewCell.m in Sources */,
+				B3D340171BC2BF8E00151917 /* eBooksSearchResultList.cpp in Sources */,
+				B301476F1BC2568700DE17C3 /* eBooksSearchKeywordLabelView.m in Sources */,
+				B3E361751BC6BA8000405D4B /* eBooksImagePreviewController.m in Sources */,
+				B305E8441BC0A6B900F16779 /* eBooksRecommendViewController.mm in Sources */,
+				B3C877C41BC5454E0055AE24 /* eBooksSingleBookDetailInfo.cpp in Sources */,
+				B3E361711BC6A94200405D4B /* eBooksSingleBookDetailViewController.mm in Sources */,
+				B305E84A1BC0A6D900F16779 /* eBooksInteractionViewController.m in Sources */,
 				B32750311BC0114000DC81F8 /* main.m in Sources */,
+				B30147601BC2077D00DE17C3 /* eBooksCategoryList.cpp in Sources */,
+				B305E8531BC0A79E00F16779 /* eBooksNetworkingHelper.mm in Sources */,
+				B30147661BC21C5C00DE17C3 /* eBooksCategoryChooseTableViewController.mm in Sources */,
+				B301476E1BC2568700DE17C3 /* eBooksSearchViewController.mm in Sources */,
+				B3963D761BCA8E2F0018215B /* eBooksSettingsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -414,25 +767,53 @@
 		};
 		B327505A1BC0114100DC81F8 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8190E7F2B90A0FB85E95CE52 /* Pods-it-eBooks.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Wei Feng Hou (7M253B4AY4)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Wei Feng Hou (7M253B4AY4)";
+				ENABLE_BITCODE = YES;
+				GCC_INPUT_FILETYPE = automatic;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/it-eBooks/eBooks_prefix.pch";
 				INFOPLIST_FILE = "it-eBooks/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SDKROOT)/usr/lib/system",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.WangLuofan.it-eBooks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "588e021b-5ac9-48a3-be93-cb2de15add4e";
 			};
 			name = Debug;
 		};
 		B327505B1BC0114100DC81F8 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8C613352F1D074A6BBB30250 /* Pods-it-eBooks.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Wei Feng Hou (7M253B4AY4)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Wei Feng Hou (7M253B4AY4)";
+				ENABLE_BITCODE = YES;
+				GCC_INPUT_FILETYPE = automatic;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/it-eBooks/eBooks_prefix.pch";
 				INFOPLIST_FILE = "it-eBooks/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SDKROOT)/usr/lib/system",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.WangLuofan.it-eBooks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "588e021b-5ac9-48a3-be93-cb2de15add4e";
 			};
 			name = Release;
 		};

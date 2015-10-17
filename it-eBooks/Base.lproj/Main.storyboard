@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="hXD-cx-p2T">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="hXD-cx-p2T">
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
     </dependencies>
     <scenes>
         <!--书籍搜索-->
         <scene sceneID="rli-5B-S47">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ca0-xY-Sdq" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <viewController id="CAq-Mv-Ea2" sceneMemberID="viewController">
+                <viewController id="CAq-Mv-Ea2" customClass="eBooksSearchViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="0RF-OV-z3B"/>
                         <viewControllerLayoutGuide type="bottom" id="Ix8-Li-4US"/>
@@ -16,18 +16,19 @@
                     <view key="view" contentMode="scaleToFill" id="Rrs-VT-8qF">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="书籍搜索" id="xLy-eh-6pu"/>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ca0-xY-Sdq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1525" y="498"/>
         </scene>
         <!--推荐列表-->
         <scene sceneID="bss-Nv-dIw">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="SsN-3A-uiy" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <viewController id="LTF-xE-9hN" sceneMemberID="viewController">
+                <viewController id="LTF-xE-9hN" customClass="eBooksRecommendViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="29i-vb-2is"/>
                         <viewControllerLayoutGuide type="bottom" id="dGA-Wl-Fp6"/>
@@ -35,10 +36,12 @@
                     <view key="view" contentMode="scaleToFill" id="9JK-kt-uzF">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="推荐列表" id="7iO-rd-ICZ"/>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SsN-3A-uiy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1525" y="-163"/>
         </scene>
@@ -49,6 +52,7 @@
                     <tabBar key="tabBar" contentMode="scaleToFill" id="v3r-ar-MQ4">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <animations/>
                         <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
@@ -71,7 +75,8 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="OmF-mn-SUF">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <animations/>
+                        <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         </textAttributes>
@@ -94,7 +99,8 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="JOe-j7-UQb">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <animations/>
+                        <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         </textAttributes>
@@ -108,10 +114,10 @@
             </objects>
             <point key="canvasLocation" x="713" y="498"/>
         </scene>
-        <!--我-->
+        <!--Books Person View Controller-->
         <scene sceneID="wyA-Om-gtc">
             <objects>
-                <viewController id="a5l-eJ-BR2" sceneMemberID="viewController">
+                <viewController id="a5l-eJ-BR2" customClass="eBooksPersonViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="GSo-Qz-P2l"/>
                         <viewControllerLayoutGuide type="bottom" id="CxR-7r-OnE"/>
@@ -119,18 +125,19 @@
                     <view key="view" contentMode="scaleToFill" id="8db-DG-CTG">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="我" id="wUL-ki-LVb"/>
+                    <navigationItem key="navigationItem" id="wUL-ki-LVb"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r1T-UO-2ri" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1525" y="1167"/>
         </scene>
-        <!--设置-->
+        <!--互动-->
         <scene sceneID="8tk-dr-5Kb">
             <objects>
-                <viewController id="rOK-BP-Goo" sceneMemberID="viewController">
+                <viewController id="rOK-BP-Goo" customClass="eBooksInteractionViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="CIy-H3-ve1"/>
                         <viewControllerLayoutGuide type="bottom" id="LyJ-gY-wPn"/>
@@ -138,9 +145,10 @@
                     <view key="view" contentMode="scaleToFill" id="tm4-gX-bza">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="设置" id="pbW-yP-R67"/>
+                    <navigationItem key="navigationItem" title="互动" id="pbW-yP-R67"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VSt-UD-7Rb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -155,7 +163,8 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="138-mS-oap">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <animations/>
+                        <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         </textAttributes>
@@ -178,7 +187,8 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="AC2-17-10p">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <animations/>
+                        <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         </textAttributes>

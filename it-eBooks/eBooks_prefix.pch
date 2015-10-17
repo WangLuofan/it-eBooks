@@ -1,0 +1,49 @@
+//
+//  eBooks_prefix.pch
+//  it-eBooks
+//
+//  Created by 王落凡 on 15/10/5.
+//  Copyright © 2015年 王落凡. All rights reserved.
+//
+
+#ifndef eBooks_prefix_pch
+#define eBooks_prefix_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+//系统相关
+#define CPP_SAFEDELETE(x) if(x) { delete x; x = nullptr;}
+#define NAV_STATUS_OFFSET 64
+#define IOS_SCREEN_WIDTH [UIScreen mainScreen].bounds.size.width
+#define IOS_SCREEN_HEIGHT [UIScreen mainScreen].bounds.size.height
+#define AES_CRYPT_PASSWORD @"1993-09-15"
+
+//通知
+#define EBOOKS_NOTIFICATION_PICK_IMAGE_COMPLETE @"eBooksPickImageCompleteNotification"             //用户头像修改通知
+#define EBOOKS_NOTIFICATION_LOGIN_SUCCESS @"eBooksLoginSuccessNotification"                        //用户成功登陆通知
+#define EBOOKS_NOTIFICATION_USERNAME_OR_PASSWORD_INVALID @"eBooksLoginInvalidUserNameOrPassword"   //用户名或密码不正确
+#define EBOOKS_NOTIFICATION_LOGIN_FAILURE @"eBooksLoginFailureNotification"                        //用户登陆失败通知
+#define EBOOKS_NOTIFICATION_LOGOUT @"eBooksLogoutNotification"                                     //用户注销通知
+
+//基本URL
+#define BASE_URL(serviceType) [NSString stringWithFormat:@"http://192.168.1.101/eBooksServer/eBooks_Service.php?SERVICE_TYPE=%ld",serviceType]
+#define FILE_URL(subUrl) [NSURL URLWithString:[[NSString stringWithFormat:@"http://192.168.1.101/eBooksServer%@",subUrl] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]]
+#define FILE_URL_STRING(subUrlString) [[NSString stringWithFormat:@"http://192.168.1.101/eBooksServer%@",subUrlString] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]
+#define UIColorFromHexRGB(rgbValue) [UIColor colorWithRed:((CGFloat)(rgbValue & 0xFF0000) >> 16) / 255.0f green:((CGFloat)(rgbValue & 0x00FF00) >> 8) / 255.0f blue:((CGFloat)(rgbValue & 0x0000FF) / 255.0f alpha:1.0f]
+#define UIColorFromRGB(r,g,b) [UIColor colorWithRed:(CGFloat)r/255.0f green:(CGFloat)g/255.0f blue:(CGFloat)b/255.0f alpha:1.0f]
+
+//服务号
+#define SERVICE_FETCH_RECOMMEND_LIST 101                        //获取推荐列表
+#define SERVICE_FETCH_SEARCH_KEYWORDS 102                       //获取搜索关键词列表
+#define SERVICE_SEARCH_BOOKS 103                                //搜索书籍
+#define SERVICE_FETCH_BOOK_DETAIL_INFO 104                      //获取书籍详情
+#define SERVICE_USER_LOGIN 105                                  //用户登陆
+#define SERVICE_FETCH_USER_DETAIL_INFO 106                      //获取用户详情
+
+//搜索方式
+#define SEARCH_BY_BOOK_NAME 201                                 //按书籍名称搜索
+#define SEARCH_BY_AUTHOR_NAME 202                               //按作者名称搜索
+#define SEARCH_BY_ISBN 203                                      //按ISBN搜索
+
+#endif /* eBooks_prefix_pch */
