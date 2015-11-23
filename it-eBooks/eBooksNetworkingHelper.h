@@ -7,20 +7,22 @@
 //
 
 #import <Foundation/Foundation.h>
+class eBooksSingleBookDetailInfo;
 
-@class  AFHTTPRequestOperation;
 typedef void(^ResponseSuccessBlock)(id responseObject);
 typedef void(^ResponseFailureBlock) (NSError* error);
 
 @interface eBooksNetworkingHelper : NSObject {
-    NSOperationQueue* operationQueue;
+    NSMutableArray* operationArray;
 }
 
 +(eBooksNetworkingHelper*)getSharedInstance;
 -(void)GET:(NSInteger)serviceType Params:(NSDictionary*)params Success:(ResponseSuccessBlock)success Failure:(ResponseFailureBlock)failure;
 -(void)POST:(NSString*)urlString Params:(NSDictionary*)params Success:(ResponseSuccessBlock)success Failure:(ResponseFailureBlock)failure;
+-(void)UPLOADImageWithParams:(NSDictionary *)params Success:(ResponseSuccessBlock)success Failure:(ResponseFailureBlock)failure;
 -(void)loginWithName:(NSString*)name Password:(NSString*)password;
--(void)logout;
--(void)cancel;
+-(void)startDownloadWithBookInfo:(eBooksSingleBookDetailInfo*)bookDetailInfo;
+-(void)pauseDownload;
+-(void)stopDownload;
 
 @end

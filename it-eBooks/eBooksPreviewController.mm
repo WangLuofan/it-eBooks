@@ -52,6 +52,11 @@
             }];
         }
             break;
+        case 3:
+        {
+            
+        }
+            break;
         default:
             break;
     }
@@ -91,6 +96,22 @@
 
 -(void)webViewDidFinishLoad:(UIWebView *)webView {
     [hud hide:YES];
+}
+
+-(BOOL)shouldAutorotate {
+    return [[NSUserDefaults standardUserDefaults] integerForKey:@"onlineReadOriention"] == 3;
+}
+
+-(UIInterfaceOrientationMask)supportedInterfaceOrientations {
+    if([[NSUserDefaults standardUserDefaults] integerForKey:@"onlineReadOriention"] == 3)
+        return UIInterfaceOrientationMaskAllButUpsideDown;
+    
+    return UIInterfaceOrientationMaskPortrait;
+}
+
+-(void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator {
+    [self.webView setFrame:CGRectMake(0, 0, size.width, size.height)];
+    return ;
 }
 
 @end

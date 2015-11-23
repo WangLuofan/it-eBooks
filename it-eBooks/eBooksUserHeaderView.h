@@ -12,11 +12,14 @@
 
 @property(nonatomic,strong) UIVisualEffectView* effectView;
 @property(nonatomic,strong) UIImageView* backgroundImageView;
+@property(nonatomic,assign) BOOL isOnlyChangeHeader;
 
 @property(nonatomic,strong) UIButton* headImageView;
 @property(nonatomic,strong) UILabel* usernameLabel;
 @property(nonatomic,strong) UILabel* messageLabel;
+@property(nonatomic,copy) NSString* imageFileName;
 
--(void)setUserInfo:(NSDictionary*)userInfo;
+-(void)updateUserInfomation;
+-(void)userLogin;
 
 @end

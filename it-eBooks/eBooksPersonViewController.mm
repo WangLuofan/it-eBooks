@@ -10,8 +10,11 @@
 #import "eBooksUserHeaderView.h"
 #import "eBooksUserInfo.hpp"
 #import "eBooksSettingsViewController.h"
+#import "eBooksNetworkingHelper.h"
 
 #import <MBProgressHUD.h>
+
+#include "eBooksUserBookStatusList.hpp"
 
 @interface eBooksPersonViewController () {
     UIColor* navPreviousColor;
@@ -39,6 +42,7 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loginSuccess:) name:EBOOKS_NOTIFICATION_LOGIN_SUCCESS object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loginInvalid:) name:EBOOKS_NOTIFICATION_USERNAME_OR_PASSWORD_INVALID object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loginFailure:) name:EBOOKS_NOTIFICATION_LOGIN_FAILURE object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(userNeedLogin:) name:EBOOKS_NOTIFICATION_NEED_LOGIN object:nil];
     
     return ;
 }
@@ -151,14 +155,33 @@
     return 0.1f;
 }
 
+-(void)userNeedLogin:(NSNotification*)notification {
+    [self.tabBarController setSelectedIndex:2];
+    [self.headInfoView userLogin];
+    return ;
+}
+
 -(void)loginSuccess:(NSNotification*)notification {
-    //头像待加入
-    [self.headInfoView setUserInfo:@{
-                                     @"userName":[NSString stringWithUTF8String:eBooksUserInfo::sharedInstance()->getNickName().c_str()],
-                                     @"userMessage":[NSString stringWithUTF8String:eBooksUserInfo::sharedInstance()->getUserMessage().c_str()]
-                                     }];
+    [self.headInfoView updateUserInfomation];
     [self.tableView reloadData];
     [self.tableView setHidden:NO];
+    
+    [[eBooksNetworkingHelper getSharedInstance] GET:SERVICE_FETCH_FAVORITE Params:@{@"userID" : [NSNumber numberWithInt:eBooksUserInfo::sharedInstance()->getUserID()]} Success:^(id responseObject) {
+        if([((NSArray*)responseObject) count] > 0) {
+            for (int i = 0; i != [((NSArray*)responseObject) count]; ++i) {
+                NSDictionary* dict = ((NSArray*)responseObject)[i];
+                eBooksUserBookStatus status = eBooksUserBookStatus([dict[@"bookID"] intValue], [dict[@"bookTitle"] UTF8String]);
+                status.addSingleBookStatus(eBooksUserBookState::STATE_FAVORITED);
+                eBooksUserBookStatusList::getInstance()->addItem(status);
+            }
+        }
+        return ;
+    } Failure:^(NSError *error) {
+        UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:@"错误" message:error.localizedDescription delegate:nil cancelButtonTitle:@"好的" otherButtonTitles: nil];
+        [alertView show];
+        return ;
+    }];
+    
     [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
     return ;
 }

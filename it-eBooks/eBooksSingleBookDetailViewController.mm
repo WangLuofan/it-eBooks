@@ -10,12 +10,16 @@
 #import "eBooksSingleBookDetailTableHeaderViewCell.h"
 #import "eBooksNetworkingHelper.h"
 #import "eBooksPreviewController.h"
+
 #include "eBooksSingleBookDetailInfo.hpp"
+#include "eBooksUserInfo.hpp"
+#include "eBooksUserBookStatusList.hpp"
 
 #import <MBProgressHUD.h>
 
-@interface eBooksSingleBookDetailViewController () <eBooksSingleBookDetailTableHeaderViewCellDelegate>{
+@interface eBooksSingleBookDetailViewController () <eBooksSingleBookDetailTableHeaderViewCellDelegate,UIAlertViewDelegate>{
     NSArray* dataSourceArray;
+    MBProgressHUD* hud;
 }
 
 @end
@@ -42,7 +46,7 @@
     [self.view addSubview:self.tableView];
     
     [self requestBookDetailInfo];
-    return ;
+    return [super viewDidLoad];
 }
 
 -(void)requestBookDetailInfo {
@@ -50,6 +54,7 @@
             dispatch_async(dispatch_get_main_queue(), ^{
                 CPP_SAFEDELETE(bookDetailInfo);
                 bookDetailInfo = new eBooksSingleBookDetailInfo();
+                bookDetailInfo->setID((int)self.singleBookID);
                 bookDetailInfo->setBookTitle([responseObject[@"bookName"] UTF8String]);
                 bookDetailInfo->setBookAuthor([responseObject[@"bookAuthor"] UTF8String]);
                 bookDetailInfo->setBookDescription([responseObject[@"bookDescription"] UTF8String]);
@@ -65,16 +70,12 @@
             });
     } Failure:^(NSError *error) {
         dispatch_async(dispatch_get_main_queue(), ^{
-            MBProgressHUD* hud = [[MBProgressHUD alloc] initWithView:self.view];
+            hud = [[MBProgressHUD alloc] initWithView:self.view];
             [hud setMode:MBProgressHUDModeText];
             [hud setLabelText:@"无法查询到书籍的相关信息"];
             [hud removeFromSuperViewOnHide];
-            [hud showAnimated:YES whileExecutingBlock:^{
-                [NSThread sleepForTimeInterval:1.0f];
-                return ;
-            } completionBlock:^{
-                [hud hide:YES];
-            }];
+            [hud show:YES];
+            [hud hide:YES afterDelay:1.0f];
         });
     }];
     return ;
@@ -112,7 +113,8 @@
             [cell setDelegate:self];
             [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
         }
-
+        
+        [cell setFavorited:eBooksUserBookStatusList::getInstance()->existItem(bookDetailInfo->getID())];
         [cell setCellInfoWithTitle:[NSString stringWithUTF8String:bookDetailInfo->getBookTitle().c_str()] imageUrl:[NSString stringWithUTF8String:bookDetailInfo->getBookThumbImageUrl().c_str()]];
         return cell;
     }
@@ -195,23 +197,70 @@
 }
 
 -(void)singleBookDetailTableViewCellButtonPressed:(UIButton *)button {
-    //
-    if(button.tag == 0) {
-        
-    }else if(button.tag == 1) {
-        
+    if(!eBooksUserInfo::sharedInstance()->isUserLogin()) {
+        UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:@"错误" message:@"您目前没有登陆,是否现在登陆?" delegate:self  cancelButtonTitle:@"取消" otherButtonTitles:@"好的", nil];
+        [alertView show];
     }else {
-        eBooksPreviewController* preViewController = [[eBooksPreviewController alloc] initWithFileUrl:FILE_URL([NSString stringWithUTF8String:bookDetailInfo->getBookDownloadUrl().c_str()])];
-        [preViewController setTitle:[NSString stringWithUTF8String:bookDetailInfo->getBookTitle().c_str()]];
-        preViewController.hidesBottomBarWhenPushed = YES;
-        [self.navigationController pushViewController:preViewController animated:YES];
+        if(button.tag == 0) {
+            //收藏书籍
+            hud = [[MBProgressHUD alloc] initWithView:self.view];
+            [hud setRemoveFromSuperViewOnHide:YES];
+            [self.view addSubview:hud];
+            [hud show:YES];
+            
+            __block eBooksUserBookStatus status = eBooksUserBookStatus(bookDetailInfo->getID(),bookDetailInfo->getBookTitle());
+            status.addSingleBookStatus(eBooksUserBookState::STATE_FAVORITED);
+            [[eBooksNetworkingHelper getSharedInstance] GET:SERVICE_FAVORITE_BOOK Params:@{
+                @"flag" : [NSNumber numberWithInt:1],
+                @"userID" : [NSNumber numberWithInt:eBooksUserInfo::sharedInstance()->getUserID()],
+                @"bookID" : [NSNumber numberWithInt:bookDetailInfo->getID()],
+                @"status" : [NSNumber numberWithInt:eBooksUserBookStatusList::getInstance()->getItemByID(bookDetailInfo->getID()).getSingleBookStatus()]
+                    } Success:^(id responseObject) {
+                        if([responseObject[@"Result"] intValue] == 0) {
+                            [hud setMode:MBProgressHUDModeText];
+                            [hud setLabelText:@"收藏成功"];
+                            
+                            eBooksUserBookStatusList::getInstance()->addItem(status);
+                            [button setTitle:@"已收藏" forState:UIControlStateNormal];
+                            [button setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
+                            [button setEnabled:NO];
+                        }else {
+                            [hud setMode:MBProgressHUDModeText];
+                            [hud setLabelText:@"收藏失败"];
+                        }
+                        [hud show:YES];
+                        [hud hide:YES afterDelay:1.0f];
+                return ;
+            } Failure:^(NSError *error) {
+                UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:@"错误" message:error.localizedDescription delegate:nil cancelButtonTitle:@"好的" otherButtonTitles: nil];
+                [alertView show];
+                return ;
+            }];
+            
+        }else if(button.tag == 1) {
+            //下载书籍
+            [[eBooksNetworkingHelper getSharedInstance] startDownloadWithBookInfo:bookDetailInfo];
+        }else {
+            eBooksPreviewController* preViewController = [[eBooksPreviewController alloc] initWithFileUrl:FILE_URL([NSString stringWithUTF8String:bookDetailInfo->getBookDownloadUrl().c_str()])];
+            [preViewController setTitle:[NSString stringWithUTF8String:bookDetailInfo->getBookTitle().c_str()]];
+            preViewController.hidesBottomBarWhenPushed = YES;
+            [self.navigationController pushViewController:preViewController animated:YES];
+        }
     }
-    
     return ;
 }
 
 -(void)dealloc {
     CPP_SAFEDELETE(bookDetailInfo);
+}
+
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    if(buttonIndex == 1) {
+        [self.tabBarController.tabBar setHidden:NO];
+        [[NSNotificationCenter defaultCenter] postNotificationName:EBOOKS_NOTIFICATION_NEED_LOGIN object:nil userInfo:nil];
+        [self.navigationController popToRootViewControllerAnimated:YES];
+    }
+    return ;
 }
 
 @end

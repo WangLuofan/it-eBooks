@@ -8,15 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		2F7D14DF33FD7CEA7A3C7A5D /* libPods-it-eBooks.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FB2DA4A629461EB1B0A4F41B /* libPods-it-eBooks.a */; };
-		B30147601BC2077D00DE17C3 /* eBooksCategoryList.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B301475E1BC2077D00DE17C3 /* eBooksCategoryList.cpp */; settings = {ASSET_TAGS = (); }; };
-		B30147661BC21C5C00DE17C3 /* eBooksCategoryChooseTableViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = B30147651BC21C5C00DE17C3 /* eBooksCategoryChooseTableViewController.mm */; settings = {ASSET_TAGS = (); }; };
-		B301476E1BC2568700DE17C3 /* eBooksSearchViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = B301476B1BC2568700DE17C3 /* eBooksSearchViewController.mm */; settings = {ASSET_TAGS = (); }; };
-		B301476F1BC2568700DE17C3 /* eBooksSearchKeywordLabelView.m in Sources */ = {isa = PBXBuildFile; fileRef = B301476D1BC2568700DE17C3 /* eBooksSearchKeywordLabelView.m */; settings = {ASSET_TAGS = (); }; };
-		B305E8441BC0A6B900F16779 /* eBooksRecommendViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = B305E8431BC0A6B900F16779 /* eBooksRecommendViewController.mm */; settings = {ASSET_TAGS = (); }; };
-		B305E84A1BC0A6D900F16779 /* eBooksInteractionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B305E8491BC0A6D900F16779 /* eBooksInteractionViewController.m */; settings = {ASSET_TAGS = (); }; };
-		B305E84D1BC0A6EC00F16779 /* eBooksPersonViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = B305E84C1BC0A6EC00F16779 /* eBooksPersonViewController.mm */; settings = {ASSET_TAGS = (); }; };
-		B305E8531BC0A79E00F16779 /* eBooksNetworkingHelper.mm in Sources */ = {isa = PBXBuildFile; fileRef = B305E8521BC0A79E00F16779 /* eBooksNetworkingHelper.mm */; settings = {ASSET_TAGS = (); }; };
-		B305E8571BC0A7B700F16779 /* eBooksDatabaseHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = B305E8561BC0A7B700F16779 /* eBooksDatabaseHelper.m */; settings = {ASSET_TAGS = (); }; };
+		B30147601BC2077D00DE17C3 /* eBooksCategoryList.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B301475E1BC2077D00DE17C3 /* eBooksCategoryList.cpp */; };
+		B30147661BC21C5C00DE17C3 /* eBooksCategoryChooseTableViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = B30147651BC21C5C00DE17C3 /* eBooksCategoryChooseTableViewController.mm */; };
+		B301476E1BC2568700DE17C3 /* eBooksSearchViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = B301476B1BC2568700DE17C3 /* eBooksSearchViewController.mm */; };
+		B301476F1BC2568700DE17C3 /* eBooksSearchKeywordLabelView.m in Sources */ = {isa = PBXBuildFile; fileRef = B301476D1BC2568700DE17C3 /* eBooksSearchKeywordLabelView.m */; };
+		B305E8441BC0A6B900F16779 /* eBooksRecommendViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = B305E8431BC0A6B900F16779 /* eBooksRecommendViewController.mm */; };
+		B305E84A1BC0A6D900F16779 /* eBooksInteractionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B305E8491BC0A6D900F16779 /* eBooksInteractionViewController.m */; };
+		B305E84D1BC0A6EC00F16779 /* eBooksPersonViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = B305E84C1BC0A6EC00F16779 /* eBooksPersonViewController.mm */; };
+		B305E8531BC0A79E00F16779 /* eBooksNetworkingHelper.mm in Sources */ = {isa = PBXBuildFile; fileRef = B305E8521BC0A79E00F16779 /* eBooksNetworkingHelper.mm */; };
+		B305E8571BC0A7B700F16779 /* eBooksDatabaseHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = B305E8561BC0A7B700F16779 /* eBooksDatabaseHelper.m */; };
+		B30B89CE1BD23FC000054ED5 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B30B89CD1BD23FC000054ED5 /* AssetsLibrary.framework */; };
 		B32750311BC0114000DC81F8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B32750301BC0114000DC81F8 /* main.m */; };
 		B32750341BC0114000DC81F8 /* eBooksAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B32750331BC0114000DC81F8 /* eBooksAppDelegate.m */; };
 		B327503A1BC0114000DC81F8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B32750381BC0114000DC81F8 /* Main.storyboard */; };
@@ -24,18 +25,29 @@
 		B327503F1BC0114000DC81F8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B327503D1BC0114000DC81F8 /* LaunchScreen.storyboard */; };
 		B327504A1BC0114100DC81F8 /* it_eBooksTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B32750491BC0114100DC81F8 /* it_eBooksTests.m */; };
 		B32750551BC0114100DC81F8 /* it_eBooksUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = B32750541BC0114100DC81F8 /* it_eBooksUITests.m */; };
-		B36B6FB31BCE6ACA0058BCF5 /* eBooksPreviewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = B36B6FB21BCE6ACA0058BCF5 /* eBooksPreviewController.mm */; settings = {ASSET_TAGS = (); }; };
-		B3963D761BCA8E2F0018215B /* eBooksSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3963D751BCA8E2F0018215B /* eBooksSettingsViewController.m */; settings = {ASSET_TAGS = (); }; };
-		B3963D7A1BCA92320018215B /* eBooksUserHeaderView.mm in Sources */ = {isa = PBXBuildFile; fileRef = B3963D791BCA92320018215B /* eBooksUserHeaderView.mm */; settings = {ASSET_TAGS = (); }; };
-		B3963D7E1BCAA91A0018215B /* eBooksUserInfo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B3963D7C1BCAA91A0018215B /* eBooksUserInfo.cpp */; settings = {ASSET_TAGS = (); }; };
-		B3C877C01BC4D51F0055AE24 /* eBooksSearchTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B3C877BF1BC4D51F0055AE24 /* eBooksSearchTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
-		B3C877C41BC5454E0055AE24 /* eBooksSingleBookDetailInfo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B3C877C21BC5454E0055AE24 /* eBooksSingleBookDetailInfo.cpp */; settings = {ASSET_TAGS = (); }; };
-		B3D340171BC2BF8E00151917 /* eBooksSearchResultList.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B3D340151BC2BF8E00151917 /* eBooksSearchResultList.cpp */; settings = {ASSET_TAGS = (); }; };
-		B3D3401A1BC2BFAB00151917 /* eBooksSearchResultItem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B3D340181BC2BFAB00151917 /* eBooksSearchResultItem.cpp */; settings = {ASSET_TAGS = (); }; };
-		B3E361691BC6A8B000405D4B /* eBooksSingleBookDetailTableHeaderViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E361641BC6A8B000405D4B /* eBooksSingleBookDetailTableHeaderViewCell.m */; settings = {ASSET_TAGS = (); }; };
-		B3E3616A1BC6A8B000405D4B /* eBooksSingleBookDetailTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E361661BC6A8B000405D4B /* eBooksSingleBookDetailTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
-		B3E361711BC6A94200405D4B /* eBooksSingleBookDetailViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = B3E361701BC6A94200405D4B /* eBooksSingleBookDetailViewController.mm */; settings = {ASSET_TAGS = (); }; };
-		B3E361751BC6BA8000405D4B /* eBooksImagePreviewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E361741BC6BA8000405D4B /* eBooksImagePreviewController.m */; settings = {ASSET_TAGS = (); }; };
+		B334D1EA1BE3CCAF007D9671 /* eBooksTools.mm in Sources */ = {isa = PBXBuildFile; fileRef = B334D1E91BE3CCAF007D9671 /* eBooksTools.mm */; };
+		B346BD3C1BD351C800C994BE /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = B346BD3B1BD351C800C994BE /* Reachability.m */; };
+		B366027E1BDF9D6A0007D5D7 /* eBooksUserRegistViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = B366027D1BDF9D6A0007D5D7 /* eBooksUserRegistViewController.mm */; };
+		B36B6FB31BCE6ACA0058BCF5 /* eBooksPreviewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = B36B6FB21BCE6ACA0058BCF5 /* eBooksPreviewController.mm */; };
+		B3963D761BCA8E2F0018215B /* eBooksSettingsViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = B3963D751BCA8E2F0018215B /* eBooksSettingsViewController.mm */; };
+		B3963D7A1BCA92320018215B /* eBooksUserHeaderView.mm in Sources */ = {isa = PBXBuildFile; fileRef = B3963D791BCA92320018215B /* eBooksUserHeaderView.mm */; };
+		B3963D7E1BCAA91A0018215B /* eBooksUserInfo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B3963D7C1BCAA91A0018215B /* eBooksUserInfo.cpp */; };
+		B3C877C01BC4D51F0055AE24 /* eBooksSearchTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B3C877BF1BC4D51F0055AE24 /* eBooksSearchTableViewCell.m */; };
+		B3C877C41BC5454E0055AE24 /* eBooksSingleBookDetailInfo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B3C877C21BC5454E0055AE24 /* eBooksSingleBookDetailInfo.cpp */; };
+		B3D340171BC2BF8E00151917 /* eBooksSearchResultList.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B3D340151BC2BF8E00151917 /* eBooksSearchResultList.cpp */; };
+		B3D3401A1BC2BFAB00151917 /* eBooksSearchResultItem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B3D340181BC2BFAB00151917 /* eBooksSearchResultItem.cpp */; };
+		B3E361691BC6A8B000405D4B /* eBooksSingleBookDetailTableHeaderViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E361641BC6A8B000405D4B /* eBooksSingleBookDetailTableHeaderViewCell.m */; };
+		B3E3616A1BC6A8B000405D4B /* eBooksSingleBookDetailTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E361661BC6A8B000405D4B /* eBooksSingleBookDetailTableViewCell.m */; };
+		B3E361711BC6A94200405D4B /* eBooksSingleBookDetailViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = B3E361701BC6A94200405D4B /* eBooksSingleBookDetailViewController.mm */; };
+		B3E361751BC6BA8000405D4B /* eBooksImagePreviewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E361741BC6BA8000405D4B /* eBooksImagePreviewController.m */; };
+		B3E61DEA1BF731FC002E8673 /* eBooksRecommendTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E61DE91BF731FB002E8673 /* eBooksRecommendTableViewCell.m */; };
+		B3E61DF01BF73DA6002E8673 /* eBooksUserBookStatus.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B3E61DEE1BF73DA6002E8673 /* eBooksUserBookStatus.cpp */; };
+		B3E61DF31BF7439A002E8673 /* eBooksUserBookStatusList.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B3E61DF11BF7439A002E8673 /* eBooksUserBookStatusList.cpp */; };
+		B3EA00121BE0E25C00B0FCAF /* eBooksUserRegistTableViewCell.mm in Sources */ = {isa = PBXBuildFile; fileRef = B3EA00111BE0E25C00B0FCAF /* eBooksUserRegistTableViewCell.mm */; };
+		B3F1556D1BEF5F64006F9875 /* eBooksRecommendList.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B3F1556B1BEF5F64006F9875 /* eBooksRecommendList.cpp */; };
+		B3F8AF9E1BD3ABC0002369FE /* eBooksFavoriteTableViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = B3F8AF9D1BD3ABC0002369FE /* eBooksFavoriteTableViewController.mm */; };
+		B3F8AFA21BD3AC06002369FE /* eBooksDownLoadTableViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = B3F8AFA11BD3AC06002369FE /* eBooksDownLoadTableViewController.mm */; };
+		B3F8AFA61BD3AC22002369FE /* eBooksFavoriteTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B3F8AFA51BD3AC22002369FE /* eBooksFavoriteTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +89,7 @@
 		B305E8521BC0A79E00F16779 /* eBooksNetworkingHelper.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = eBooksNetworkingHelper.mm; sourceTree = "<group>"; };
 		B305E8551BC0A7B700F16779 /* eBooksDatabaseHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = eBooksDatabaseHelper.h; sourceTree = "<group>"; };
 		B305E8561BC0A7B700F16779 /* eBooksDatabaseHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = eBooksDatabaseHelper.m; sourceTree = "<group>"; };
+		B30B89CD1BD23FC000054ED5 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 		B327502C1BC0114000DC81F8 /* it-eBooks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "it-eBooks.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B32750301BC0114000DC81F8 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		B32750321BC0114000DC81F8 /* eBooksAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = eBooksAppDelegate.h; sourceTree = "<group>"; };
@@ -91,13 +104,19 @@
 		B32750501BC0114100DC81F8 /* it-eBooksUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "it-eBooksUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B32750541BC0114100DC81F8 /* it_eBooksUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = it_eBooksUITests.m; sourceTree = "<group>"; };
 		B32750561BC0114100DC81F8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B334D1E81BE3CCAF007D9671 /* eBooksTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = eBooksTools.h; sourceTree = "<group>"; };
+		B334D1E91BE3CCAF007D9671 /* eBooksTools.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = eBooksTools.mm; sourceTree = "<group>"; };
+		B346BD3A1BD351C800C994BE /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		B346BD3B1BD351C800C994BE /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		B34A41141BCD487800A63691 /* QuickLook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuickLook.framework; path = System/Library/Frameworks/QuickLook.framework; sourceTree = SDKROOT; };
 		B35BC2491BD14F1B00CE4FD3 /* libcommonCrypto.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libcommonCrypto.tbd; path = usr/lib/system/libcommonCrypto.tbd; sourceTree = SDKROOT; };
+		B366027C1BDF9D6A0007D5D7 /* eBooksUserRegistViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = eBooksUserRegistViewController.h; sourceTree = "<group>"; };
+		B366027D1BDF9D6A0007D5D7 /* eBooksUserRegistViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = eBooksUserRegistViewController.mm; sourceTree = "<group>"; };
 		B36B6FB11BCE6ACA0058BCF5 /* eBooksPreviewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = eBooksPreviewController.h; sourceTree = "<group>"; };
 		B36B6FB21BCE6ACA0058BCF5 /* eBooksPreviewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = eBooksPreviewController.mm; sourceTree = "<group>"; };
 		B39477031BCFD2DA0007D211 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		B3963D741BCA8E2F0018215B /* eBooksSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = eBooksSettingsViewController.h; sourceTree = "<group>"; };
-		B3963D751BCA8E2F0018215B /* eBooksSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = eBooksSettingsViewController.m; sourceTree = "<group>"; };
+		B3963D751BCA8E2F0018215B /* eBooksSettingsViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = eBooksSettingsViewController.mm; sourceTree = "<group>"; };
 		B3963D781BCA92320018215B /* eBooksUserHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = eBooksUserHeaderView.h; sourceTree = "<group>"; };
 		B3963D791BCA92320018215B /* eBooksUserHeaderView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = eBooksUserHeaderView.mm; sourceTree = "<group>"; };
 		B3963D7C1BCAA91A0018215B /* eBooksUserInfo.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = eBooksUserInfo.cpp; sourceTree = "<group>"; };
@@ -118,6 +137,23 @@
 		B3E361701BC6A94200405D4B /* eBooksSingleBookDetailViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = eBooksSingleBookDetailViewController.mm; sourceTree = "<group>"; };
 		B3E361731BC6BA8000405D4B /* eBooksImagePreviewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = eBooksImagePreviewController.h; sourceTree = "<group>"; };
 		B3E361741BC6BA8000405D4B /* eBooksImagePreviewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = eBooksImagePreviewController.m; sourceTree = "<group>"; };
+		B3E61DE61BF72DEB002E8673 /* eBooksUserBookState.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = eBooksUserBookState.h; sourceTree = "<group>"; };
+		B3E61DE81BF731FB002E8673 /* eBooksRecommendTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = eBooksRecommendTableViewCell.h; sourceTree = "<group>"; };
+		B3E61DE91BF731FB002E8673 /* eBooksRecommendTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = eBooksRecommendTableViewCell.m; sourceTree = "<group>"; };
+		B3E61DEE1BF73DA6002E8673 /* eBooksUserBookStatus.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = eBooksUserBookStatus.cpp; sourceTree = "<group>"; };
+		B3E61DEF1BF73DA6002E8673 /* eBooksUserBookStatus.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = eBooksUserBookStatus.hpp; sourceTree = "<group>"; };
+		B3E61DF11BF7439A002E8673 /* eBooksUserBookStatusList.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = eBooksUserBookStatusList.cpp; sourceTree = "<group>"; };
+		B3E61DF21BF7439A002E8673 /* eBooksUserBookStatusList.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = eBooksUserBookStatusList.hpp; sourceTree = "<group>"; };
+		B3EA00101BE0E25C00B0FCAF /* eBooksUserRegistTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = eBooksUserRegistTableViewCell.h; sourceTree = "<group>"; };
+		B3EA00111BE0E25C00B0FCAF /* eBooksUserRegistTableViewCell.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = eBooksUserRegistTableViewCell.mm; sourceTree = "<group>"; };
+		B3F1556B1BEF5F64006F9875 /* eBooksRecommendList.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = eBooksRecommendList.cpp; sourceTree = "<group>"; };
+		B3F1556C1BEF5F64006F9875 /* eBooksRecommendList.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = eBooksRecommendList.hpp; sourceTree = "<group>"; };
+		B3F8AF9C1BD3ABC0002369FE /* eBooksFavoriteTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = eBooksFavoriteTableViewController.h; sourceTree = "<group>"; };
+		B3F8AF9D1BD3ABC0002369FE /* eBooksFavoriteTableViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = eBooksFavoriteTableViewController.mm; sourceTree = "<group>"; };
+		B3F8AFA01BD3AC06002369FE /* eBooksDownLoadTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = eBooksDownLoadTableViewController.h; sourceTree = "<group>"; };
+		B3F8AFA11BD3AC06002369FE /* eBooksDownLoadTableViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = eBooksDownLoadTableViewController.mm; sourceTree = "<group>"; };
+		B3F8AFA41BD3AC22002369FE /* eBooksFavoriteTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = eBooksFavoriteTableViewCell.h; sourceTree = "<group>"; };
+		B3F8AFA51BD3AC22002369FE /* eBooksFavoriteTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = eBooksFavoriteTableViewCell.m; sourceTree = "<group>"; };
 		FB2DA4A629461EB1B0A4F41B /* libPods-it-eBooks.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-it-eBooks.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -126,6 +162,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B30B89CE1BD23FC000054ED5 /* AssetsLibrary.framework in Frameworks */,
 				2F7D14DF33FD7CEA7A3C7A5D /* libPods-it-eBooks.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -159,6 +196,7 @@
 		A80604C80D0F3DD6D4B5EA91 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B30B89CD1BD23FC000054ED5 /* AssetsLibrary.framework */,
 				B35BC2491BD14F1B00CE4FD3 /* libcommonCrypto.tbd */,
 				B39477031BCFD2DA0007D211 /* Security.framework */,
 				B34A41141BCD487800A63691 /* QuickLook.framework */,
@@ -170,10 +208,13 @@
 		B301475D1BC2076D00DE17C3 /* C++ */ = {
 			isa = PBXGroup;
 			children = (
+				B3E61DE51BF72DAA002E8673 /* Favorite */,
+				B3F1556A1BEF5F0C006F9875 /* RecommendList */,
 				B3963D7B1BCAA9070018215B /* UserInfo */,
 				B3C877C11BC545400055AE24 /* BookDetailInfo */,
 				B3D340141BC2BDA800151917 /* Search */,
 				B3D340131BC2BD9C00151917 /* Category */,
+				B3E61DE61BF72DEB002E8673 /* eBooksUserBookState.h */,
 			);
 			name = "C++";
 			sourceTree = "<group>";
@@ -217,8 +258,6 @@
 				B3E361621BC6A8A600405D4B /* BookDetail */,
 				B30147691BC2565500DE17C3 /* Search */,
 				B30147681BC2563100DE17C3 /* Recommend */,
-				B30147641BC21C5C00DE17C3 /* eBooksCategoryChooseTableViewController.h */,
-				B30147651BC21C5C00DE17C3 /* eBooksCategoryChooseTableViewController.mm */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -226,6 +265,8 @@
 		B305E84E1BC0A75900F16779 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				B3E61DE71BF7319F002E8673 /* Recommend */,
+				B3F8AFA31BD3AC13002369FE /* Me */,
 				B34A41091BCD296700A63691 /* Preview */,
 				B3963D771BCA92180018215B /* Person */,
 				B3C877BD1BC4D5060055AE24 /* Search */,
@@ -249,6 +290,15 @@
 				B305E8561BC0A7B700F16779 /* eBooksDatabaseHelper.m */,
 			);
 			name = Database;
+			sourceTree = "<group>";
+		};
+		B31495891BE26BD200A06E55 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				B30147641BC21C5C00DE17C3 /* eBooksCategoryChooseTableViewController.h */,
+				B30147651BC21C5C00DE17C3 /* eBooksCategoryChooseTableViewController.mm */,
+			);
+			name = Category;
 			sourceTree = "<group>";
 		};
 		B32750231BC0114000DC81F8 = {
@@ -276,6 +326,8 @@
 		B327502E1BC0114000DC81F8 /* it-eBooks */ = {
 			isa = PBXGroup;
 			children = (
+				B334D1EB1BE3CFF7007D9671 /* Resource-Src */,
+				B334D1E71BE3CC9E007D9671 /* Tools */,
 				B301475D1BC2076D00DE17C3 /* C++ */,
 				B305E8541BC0A7A400F16779 /* Database */,
 				B305E84F1BC0A76500F16779 /* Networking */,
@@ -318,6 +370,32 @@
 			path = "it-eBooksUITests";
 			sourceTree = "<group>";
 		};
+		B334D1E71BE3CC9E007D9671 /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				B334D1E81BE3CCAF007D9671 /* eBooksTools.h */,
+				B334D1E91BE3CCAF007D9671 /* eBooksTools.mm */,
+			);
+			name = Tools;
+			sourceTree = "<group>";
+		};
+		B334D1EB1BE3CFF7007D9671 /* Resource-Src */ = {
+			isa = PBXGroup;
+			children = (
+				B346BD391BD351B600C994BE /* Reachability */,
+			);
+			name = "Resource-Src";
+			sourceTree = "<group>";
+		};
+		B346BD391BD351B600C994BE /* Reachability */ = {
+			isa = PBXGroup;
+			children = (
+				B346BD3A1BD351C800C994BE /* Reachability.h */,
+				B346BD3B1BD351C800C994BE /* Reachability.m */,
+			);
+			name = Reachability;
+			sourceTree = "<group>";
+		};
 		B34A41091BCD296700A63691 /* Preview */ = {
 			isa = PBXGroup;
 			children = (
@@ -334,9 +412,22 @@
 			name = PDFPreview;
 			sourceTree = "<group>";
 		};
+		B366027B1BDF9D530007D5D7 /* Regist */ = {
+			isa = PBXGroup;
+			children = (
+				B366027C1BDF9D6A0007D5D7 /* eBooksUserRegistViewController.h */,
+				B366027D1BDF9D6A0007D5D7 /* eBooksUserRegistViewController.mm */,
+			);
+			name = Regist;
+			sourceTree = "<group>";
+		};
 		B3963D711BCA83A50018215B /* Ｍe */ = {
 			isa = PBXGroup;
 			children = (
+				B31495891BE26BD200A06E55 /* Category */,
+				B366027B1BDF9D530007D5D7 /* Regist */,
+				B3F8AF9F1BD3ABE3002369FE /* Download */,
+				B3F8AF9B1BD3ABB0002369FE /* Favorite */,
 				B3963D731BCA8E160018215B /* Settings */,
 				B305E84B1BC0A6EC00F16779 /* eBooksPersonViewController.h */,
 				B305E84C1BC0A6EC00F16779 /* eBooksPersonViewController.mm */,
@@ -357,7 +448,7 @@
 			isa = PBXGroup;
 			children = (
 				B3963D741BCA8E2F0018215B /* eBooksSettingsViewController.h */,
-				B3963D751BCA8E2F0018215B /* eBooksSettingsViewController.m */,
+				B3963D751BCA8E2F0018215B /* eBooksSettingsViewController.mm */,
 			);
 			name = Settings;
 			sourceTree = "<group>";
@@ -378,6 +469,15 @@
 				B3963D7D1BCAA91A0018215B /* eBooksUserInfo.hpp */,
 			);
 			name = UserInfo;
+			sourceTree = "<group>";
+		};
+		B3A770E61BE4664B00FBE174 /* Favorite */ = {
+			isa = PBXGroup;
+			children = (
+				B3F8AFA41BD3AC22002369FE /* eBooksFavoriteTableViewCell.h */,
+				B3F8AFA51BD3AC22002369FE /* eBooksFavoriteTableViewCell.m */,
+			);
+			name = Favorite;
 			sourceTree = "<group>";
 		};
 		B3C877BD1BC4D5060055AE24 /* Search */ = {
@@ -438,6 +538,71 @@
 				B3E361741BC6BA8000405D4B /* eBooksImagePreviewController.m */,
 			);
 			name = ImagePreview;
+			sourceTree = "<group>";
+		};
+		B3E61DE51BF72DAA002E8673 /* Favorite */ = {
+			isa = PBXGroup;
+			children = (
+				B3E61DEE1BF73DA6002E8673 /* eBooksUserBookStatus.cpp */,
+				B3E61DEF1BF73DA6002E8673 /* eBooksUserBookStatus.hpp */,
+				B3E61DF11BF7439A002E8673 /* eBooksUserBookStatusList.cpp */,
+				B3E61DF21BF7439A002E8673 /* eBooksUserBookStatusList.hpp */,
+			);
+			name = Favorite;
+			sourceTree = "<group>";
+		};
+		B3E61DE71BF7319F002E8673 /* Recommend */ = {
+			isa = PBXGroup;
+			children = (
+				B3E61DE81BF731FB002E8673 /* eBooksRecommendTableViewCell.h */,
+				B3E61DE91BF731FB002E8673 /* eBooksRecommendTableViewCell.m */,
+			);
+			name = Recommend;
+			sourceTree = "<group>";
+		};
+		B3EA000F1BE0E24400B0FCAF /* Regist */ = {
+			isa = PBXGroup;
+			children = (
+				B3EA00101BE0E25C00B0FCAF /* eBooksUserRegistTableViewCell.h */,
+				B3EA00111BE0E25C00B0FCAF /* eBooksUserRegistTableViewCell.mm */,
+			);
+			name = Regist;
+			sourceTree = "<group>";
+		};
+		B3F1556A1BEF5F0C006F9875 /* RecommendList */ = {
+			isa = PBXGroup;
+			children = (
+				B3F1556B1BEF5F64006F9875 /* eBooksRecommendList.cpp */,
+				B3F1556C1BEF5F64006F9875 /* eBooksRecommendList.hpp */,
+			);
+			name = RecommendList;
+			sourceTree = "<group>";
+		};
+		B3F8AF9B1BD3ABB0002369FE /* Favorite */ = {
+			isa = PBXGroup;
+			children = (
+				B3F8AF9C1BD3ABC0002369FE /* eBooksFavoriteTableViewController.h */,
+				B3F8AF9D1BD3ABC0002369FE /* eBooksFavoriteTableViewController.mm */,
+			);
+			name = Favorite;
+			sourceTree = "<group>";
+		};
+		B3F8AF9F1BD3ABE3002369FE /* Download */ = {
+			isa = PBXGroup;
+			children = (
+				B3F8AFA01BD3AC06002369FE /* eBooksDownLoadTableViewController.h */,
+				B3F8AFA11BD3AC06002369FE /* eBooksDownLoadTableViewController.mm */,
+			);
+			name = Download;
+			sourceTree = "<group>";
+		};
+		B3F8AFA31BD3AC13002369FE /* Me */ = {
+			isa = PBXGroup;
+			children = (
+				B3A770E61BE4664B00FBE174 /* Favorite */,
+				B3EA000F1BE0E24400B0FCAF /* Regist */,
+			);
+			name = Me;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -608,8 +773,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B366027E1BDF9D6A0007D5D7 /* eBooksUserRegistViewController.mm in Sources */,
 				B3C877C01BC4D51F0055AE24 /* eBooksSearchTableViewCell.m in Sources */,
+				B3EA00121BE0E25C00B0FCAF /* eBooksUserRegistTableViewCell.mm in Sources */,
 				B3963D7A1BCA92320018215B /* eBooksUserHeaderView.mm in Sources */,
+				B3F8AFA21BD3AC06002369FE /* eBooksDownLoadTableViewController.mm in Sources */,
 				B305E84D1BC0A6EC00F16779 /* eBooksPersonViewController.mm in Sources */,
 				B305E8571BC0A7B700F16779 /* eBooksDatabaseHelper.m in Sources */,
 				B3963D7E1BCAA91A0018215B /* eBooksUserInfo.cpp in Sources */,
@@ -617,20 +785,28 @@
 				B32750341BC0114000DC81F8 /* eBooksAppDelegate.m in Sources */,
 				B3D3401A1BC2BFAB00151917 /* eBooksSearchResultItem.cpp in Sources */,
 				B3E3616A1BC6A8B000405D4B /* eBooksSingleBookDetailTableViewCell.m in Sources */,
+				B3E61DF31BF7439A002E8673 /* eBooksUserBookStatusList.cpp in Sources */,
 				B3E361691BC6A8B000405D4B /* eBooksSingleBookDetailTableHeaderViewCell.m in Sources */,
+				B346BD3C1BD351C800C994BE /* Reachability.m in Sources */,
+				B3F1556D1BEF5F64006F9875 /* eBooksRecommendList.cpp in Sources */,
 				B3D340171BC2BF8E00151917 /* eBooksSearchResultList.cpp in Sources */,
 				B301476F1BC2568700DE17C3 /* eBooksSearchKeywordLabelView.m in Sources */,
 				B3E361751BC6BA8000405D4B /* eBooksImagePreviewController.m in Sources */,
 				B305E8441BC0A6B900F16779 /* eBooksRecommendViewController.mm in Sources */,
+				B3F8AFA61BD3AC22002369FE /* eBooksFavoriteTableViewCell.m in Sources */,
 				B3C877C41BC5454E0055AE24 /* eBooksSingleBookDetailInfo.cpp in Sources */,
+				B3E61DF01BF73DA6002E8673 /* eBooksUserBookStatus.cpp in Sources */,
+				B334D1EA1BE3CCAF007D9671 /* eBooksTools.mm in Sources */,
 				B3E361711BC6A94200405D4B /* eBooksSingleBookDetailViewController.mm in Sources */,
 				B305E84A1BC0A6D900F16779 /* eBooksInteractionViewController.m in Sources */,
+				B3F8AF9E1BD3ABC0002369FE /* eBooksFavoriteTableViewController.mm in Sources */,
+				B3E61DEA1BF731FC002E8673 /* eBooksRecommendTableViewCell.m in Sources */,
 				B32750311BC0114000DC81F8 /* main.m in Sources */,
 				B30147601BC2077D00DE17C3 /* eBooksCategoryList.cpp in Sources */,
 				B305E8531BC0A79E00F16779 /* eBooksNetworkingHelper.mm in Sources */,
 				B30147661BC21C5C00DE17C3 /* eBooksCategoryChooseTableViewController.mm in Sources */,
 				B301476E1BC2568700DE17C3 /* eBooksSearchViewController.mm in Sources */,
-				B3963D761BCA8E2F0018215B /* eBooksSettingsViewController.m in Sources */,
+				B3963D761BCA8E2F0018215B /* eBooksSettingsViewController.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -14,6 +14,8 @@
 class eBooksSingleBookDetailInfo
 {
 public:
+    void setID(int);
+    int getID(void);
     
     std::string getBookTitle(void);
     void setBookTitle(std::string);
@@ -54,6 +56,7 @@ public:
     void setBookDownloadUrl(const char*);
     
 private:
+    int m_bookID;                           //书籍ID
     std::string m_bookTitle;                //书名
     std::string m_bookAuthor;               //作者
     unsigned int m_bookPages;               //书页

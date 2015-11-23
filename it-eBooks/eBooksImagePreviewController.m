@@ -7,6 +7,7 @@
 //
 
 #import "eBooksImagePreviewController.h"
+#import "eBooksTools.h"
 
 #import <UIImageView+WebCache.h>
 #import <MBProgressHUD.h>
@@ -44,9 +45,11 @@
     [imageView addSubview:hud];
     [hud show:YES];
     
-    [imageView sd_setImageWithURL:[NSURL URLWithString:self.imageThumbUrl] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
-        [hud hide:YES];
-    }];
+    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"isNoneImage"] == NO || [eBooksTools getCurrentNetworkType] == NetworkTypeWifi)
+        [imageView sd_setImageWithURL:[NSURL URLWithString:self.imageThumbUrl] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+            [hud hide:YES];
+        }];
+    
     [_scrollView addSubview:imageView];
     
     

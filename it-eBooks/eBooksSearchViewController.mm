@@ -10,6 +10,7 @@
 #import "eBooksSearchKeywordLabelView.h"
 #import "eBooksSearchTableViewCell.h"
 #import "eBooksNetworkingHelper.h"
+#import "eBooksTools.h"
 #import "eBooksSingleBookDetailViewController.h"
 
 #import <MBProgressHUD.h>
@@ -53,20 +54,6 @@
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(requestSearchKeywordsTable)];
 }
 
-//-(void)parseKeywordFile {
-//    keywordLabelView = [[eBooksSearchKeywordLabelView alloc] initWithFrame:self.tableView.frame];
-//    [keywordLabelView setDelegate:self];
-//    [self.view addSubview:keywordLabelView];
-//    
-//    NSString* filePath = [[NSBundle mainBundle] pathForResource:@"SearchKeywords" ofType:@"plist"];
-//    NSArray* keywords = [NSArray arrayWithContentsOfFile:filePath];
-//    
-//    for (NSString* str in keywords) {
-//        [keywordLabelView generateLabelWithKeyword:str];
-//    }
-//    return ;
-//}
-
 -(void)requestSearchKeywordsTable {
     [self.navigationItem.rightBarButtonItem setEnabled:NO];
     __block MBProgressHUD* hud = [[MBProgressHUD alloc] initWithView:self.view];
@@ -76,6 +63,7 @@
     
     if(keywordLabelView == nil) {
         keywordLabelView = [[eBooksSearchKeywordLabelView alloc] initWithFrame:self.tableView.frame];
+        [keywordLabelView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tap)]];
         [keywordLabelView setDelegate:self];
         [self.view addSubview:keywordLabelView];
     }
@@ -143,7 +131,11 @@
     [cell.textLabel setText:[NSString stringWithUTF8String:searchResultList->itemAtIndex((int)indexPath.row)->getName().c_str()]];
     [cell.detailTextLabel setText:[NSString stringWithUTF8String:searchResultList->itemAtIndex((int)indexPath.row)->getDescription().c_str()]];
     NSString* urlString = FILE_URL_STRING([NSString stringWithUTF8String:searchResultList->itemAtIndex((int)indexPath.row)->getThumbImageUrl().c_str()]);
-    [cell.imageView sd_setImageWithURL:[NSURL URLWithString:urlString] placeholderImage:[UIImage imageNamed:@"books"]];
+    
+    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"isNoneImage"] == NO || [eBooksTools getCurrentNetworkType] == NetworkTypeWifi)
+        [cell.imageView sd_setImageWithURL:[NSURL URLWithString:urlString] placeholderImage:[UIImage imageNamed:@"books"]];
+    else
+        [cell.imageView setImage:[UIImage imageNamed:@"books"]];
     
     return cell;
     
@@ -170,33 +162,7 @@
     [hud setLabelText:@"搜索中..."];
     [self.view addSubview:hud];
     [hud show:YES];
-    
-//    [[eBooksNetworkingHelper getSharedInstance] GET_RequestWithServiceType:SERVICE_SEARCH_BOOKS params:@{@"searchText":_searchBar.text,@"searchBy":@SEARCH_BY_BOOK_NAME} completion:^(NSURLResponse * response, NSData * data, NSError * error) {
-//        if(error == nil) {
-//            NSArray* jsonArray = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
-//            if(jsonArray.count != 0) {
-//                for (NSDictionary* itemDict in jsonArray) {
-//                    searchResultList->addNewItem((int)[itemDict[@"bookID"] integerValue], [itemDict[@"bookName"] UTF8String], [itemDict[@"bookThumbImageUrl"] UTF8String],[itemDict[@"bookDescription"] UTF8String]);
-//                }
-//                dispatch_async(dispatch_get_main_queue(), ^{
-//                    [keywordLabelView setHidden:YES];
-//                    [self.tableView setHidden:NO];
-//                    [self.tableView reloadData];
-//                    [hud hide:YES];
-//                });
-//            }
-//            else {
-//                dispatch_async(dispatch_get_main_queue(), ^{
-//                    [hud setMode:MBProgressHUDModeText];
-//                    [hud setLabelText:@"未搜索到相关书籍"];
-//                    [self clearSearchResults];
-//                    [hud hide:YES afterDelay:1.0f];
-//                });
-//                return ;
-//            }
-//        }
-//    }];
-    
+
     [[eBooksNetworkingHelper getSharedInstance] GET:SERVICE_SEARCH_BOOKS Params:@{@"searchText":_searchBar.text,@"searchBy":@SEARCH_BY_BOOK_NAME} Success:^(id responseObject) {
         for (NSDictionary* itemDict in responseObject)
             searchResultList->addNewItem((int)[itemDict[@"bookID"] integerValue], [itemDict[@"bookName"] UTF8String], [itemDict[@"bookThumbImageUrl"] UTF8String],[itemDict[@"bookDescription"] UTF8String]);
@@ -235,9 +201,15 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     eBooksSingleBookDetailViewController* singleBookDetailCtl = [[eBooksSingleBookDetailViewController alloc] init];
+    [singleBookDetailCtl setHidesBottomBarWhenPushed:YES];
     [singleBookDetailCtl setSingleBookID:searchResultList->itemAtIndex((int)indexPath.row)->getID()];
     [self.navigationController pushViewController:singleBookDetailCtl animated:YES];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    return ;
+}
+
+-(void)tap {
+    [_searchBar resignFirstResponder];
     return ;
 }
 

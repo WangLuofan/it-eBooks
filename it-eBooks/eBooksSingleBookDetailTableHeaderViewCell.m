@@ -8,8 +8,10 @@
 
 #import "eBooksSingleBookDetailTableHeaderViewCell.h"
 #import "eBooksImagePreviewController.h"
+#import "eBooksTools.h"
 
 #import <UIButton+WebCache.h>
+#import <UIView+Toast.h>
 
 #define BUTTON_HEIGHT 40
 #define SEPARATOR_LINE_HEIGHT 0.5f
@@ -83,9 +85,13 @@
 
 -(void)setFavorited:(BOOL)favorited {
     if(favorited) {
-        [self.FavoriteButton setTitle:NSLocalizedString(@"Favorited", @"") forState:UIControlStateNormal];
+        [self.FavoriteButton setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
+        [self.FavoriteButton setTitle:@"已收藏" forState:UIControlStateNormal];
+        [self.FavoriteButton setEnabled:NO];
     }else {
-        [self.FavoriteButton setTitle:NSLocalizedString(@"Favorite Book", @"") forState:UIControlStateNormal];
+        [self.FavoriteButton setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
+        [self.FavoriteButton setTitle:@"收藏书籍" forState:UIControlStateNormal];
+        [self.FavoriteButton setEnabled:YES];
     }
     
     [self.FavoriteButton setEnabled:!favorited];
@@ -94,21 +100,30 @@
 
 -(void)setCellInfoWithTitle:(NSString *)title imageUrl:(NSString *)imageUrl {
     [self.textLabel setText:title];
-    [self.BookThumbImageButton sd_setBackgroundImageWithURL:FILE_URL(imageUrl) forState:UIControlStateNormal placeholderImage:[UIImage imageNamed:@"books"]];
+    imageUrlString = FILE_URL_STRING(imageUrl);
+    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"isNoneImage"] == NO || [eBooksTools getCurrentNetworkType] == NetworkTypeWifi)
+        [self.BookThumbImageButton sd_setBackgroundImageWithURL:[NSURL URLWithString:imageUrlString] forState:UIControlStateNormal placeholderImage:[UIImage imageNamed:@"books"]];
+    else
+        [self.BookThumbImageButton setBackgroundImage:[UIImage imageNamed:@"books"] forState:UIControlStateNormal];
+    return ;
 }
 
 -(void)viewPhoto {
-    eBooksImagePreviewController* imageController = [[eBooksImagePreviewController alloc] initWithImageThumbUrl:imageUrlString];
-    [imageController setHidesBottomBarWhenPushed:YES];
     UIResponder* responder = self.nextResponder;
     while(![responder isKindOfClass:[UIViewController class]])
         responder = responder.nextResponder;
-    [[((UIViewController*)responder) navigationController] pushViewController:imageController animated:YES];
+    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"isNoneImage"] == NO || [eBooksTools getCurrentNetworkType] == NetworkTypeWifi) {
+        eBooksImagePreviewController* imageController = [[eBooksImagePreviewController alloc] initWithImageThumbUrl:imageUrlString];
+        [imageController setHidesBottomBarWhenPushed:YES];
+        [[((UIViewController*)responder) navigationController] pushViewController:imageController animated:YES];
+    }else
+        [((UIViewController*)responder).view makeToast:@"当前处于无图模式，无法预览图片" duration:2.0f position:CSToastPositionBottom];
     
     return ;
 }
 
 -(void)buttonPressed:(UIButton*)sender {
+    
     if([self.delegate respondsToSelector:@selector(singleBookDetailTableViewCellButtonPressed:)])
         [self.delegate singleBookDetailTableViewCellButtonPressed:sender];
     

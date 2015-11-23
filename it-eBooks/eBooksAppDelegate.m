@@ -7,6 +7,75 @@
 //
 
 #import "eBooksAppDelegate.h"
+#import "Reachability.h"
+#import "eBooksPreviewController.h"
+#import <UIView+Toast.h>
+
+@interface UITabBarController (Rotate)
+
+@end
+
+@implementation UITabBarController (Rotate)
+
+-(BOOL)shouldAutorotate {
+    return [self.selectedViewController shouldAutorotate];
+}
+
+-(UIInterfaceOrientationMask)supportedInterfaceOrientations {
+    return [self.selectedViewController supportedInterfaceOrientations];
+}
+
+-(UIInterfaceOrientation)preferredInterfaceOrientationForPresentation {
+    return [self.selectedViewController preferredInterfaceOrientationForPresentation];
+}
+
+@end
+
+@interface UINavigationController (Rotate)
+
+@end
+
+@implementation UINavigationController (Rotate)
+
+-(BOOL)shouldAutorotate {
+    if([[self.viewControllers lastObject] isKindOfClass:[eBooksPreviewController class]])
+        return [[self.viewControllers lastObject] shouldAutorotate];
+    
+    return NO;
+}
+
+-(UIInterfaceOrientationMask)supportedInterfaceOrientations {
+    if([[self.viewControllers lastObject] isKindOfClass:[eBooksPreviewController class]])
+        return [[self.viewControllers lastObject] supportedInterfaceOrientations];
+    
+    return UIInterfaceOrientationMaskPortrait;
+}
+
+-(UIInterfaceOrientation)preferredInterfaceOrientationForPresentation {
+    return [[self.viewControllers lastObject] preferredInterfaceOrientationForPresentation];
+}
+
+@end
+
+@interface UIViewController (Rotate)
+
+@end
+
+@implementation UIViewController (Rotate)
+
+-(BOOL)shouldAutorotate {
+    return NO;
+}
+
+-(UIInterfaceOrientationMask)supportedInterfaceOrientations {
+    return UIInterfaceOrientationMaskPortrait;
+}
+
+-(UIInterfaceOrientation)preferredInterfaceOrientationForPresentation {
+    return UIInterfaceOrientationPortrait;
+}
+
+@end
 
 @interface eBooksAppDelegate ()
 
@@ -18,6 +87,11 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     [NSThread sleepForTimeInterval:1.0f];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(networkStatusChanged:) name:kReachabilityChangedNotification object:nil];
+    self.reachability = [Reachability reachabilityWithHostName:BASE_URL_SERVER];
+    [self.reachability startNotifier];
+
     return YES;
 }
 
@@ -41,6 +115,26 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+-(void)networkStatusChanged:(NSNotification*)notification {
+    Reachability *curReachability = [notification object];
+    NSParameterAssert([curReachability isKindOfClass:[Reachability class]]);
+    NetworkStatus curStatus = [curReachability currentReachabilityStatus];
+    if(curStatus == ReachableViaWiFi) {
+        [self.window makeToast:@"您已连接到WIFI网络" duration:2.0f position:CSToastPositionCenter];
+    }else if(curStatus == ReachableViaWWAN) {
+        [self.window makeToast:@"注意\n您已切换非WIFI环境，将产生流量费用" duration:2.0f position:CSToastPositionCenter];
+    }else {
+        [self.window makeToast:@"当前已断开网络连接" duration:2.0f position:CSToastPositionCenter];
+    }
+    
+    return ;
+}
+
+-(void)dealloc {
+    [self.reachability stopNotifier];
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 @end

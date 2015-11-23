@@ -188,6 +188,23 @@ void eBooksUserInfo::setUserAge(int age)
     return ;
 }
 
+std::string eBooksUserInfo::getUserHeaderImage(void)
+{
+    return this->m_sUserHeaderImage;
+}
+
+void eBooksUserInfo::setUserHeaderImage(std::string image)
+{
+    this->m_sUserHeaderImage = image;
+    return ;
+}
+
+void eBooksUserInfo::setUserHeaderImage(const char * image)
+{
+    this->setUserHeaderImage(std::string(image));
+    return ;
+}
+
 bool eBooksUserInfo::isUserLogin(void)
 {
     return this->m_bIsLogin;
@@ -196,5 +213,22 @@ bool eBooksUserInfo::isUserLogin(void)
 void eBooksUserInfo::changeLoginState(bool login)
 {
     this->m_bIsLogin = login;
+    return ;
+}
+
+int eBooksUserInfo::getUserID(void)
+{
+    return this->m_nUserID;
+}
+
+void eBooksUserInfo::setUserID(int userid)
+{
+    this->m_nUserID = userid;
+    return ;
+}
+
+void eBooksUserInfo::userLogoff(void)
+{
+    this->setUserID(0);
     return ;
 }

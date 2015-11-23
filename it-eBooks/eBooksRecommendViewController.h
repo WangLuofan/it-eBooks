@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface eBooksRecommendViewController : UIViewController
+@interface eBooksRecommendViewController : UIViewController <UITableViewDataSource,UITableViewDelegate>
+
+@property(nonatomic,strong) UITableView* tableView;
 
 @end

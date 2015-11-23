@@ -53,13 +53,22 @@ public:
     void setUserDescription(std::string);
     void setUserDescription(const char*);
     
+    std::string getUserHeaderImage(void);
+    void setUserHeaderImage(std::string);
+    void setUserHeaderImage(const char*);
+    
     int getUserAge(void);
     void setUserAge(int);
+    
+    int getUserID(void);
+    void setUserID(int);
     
     static eBooksUserInfo* sharedInstance(void);
     
     bool isUserLogin(void);
     void changeLoginState(bool);
+    
+    void userLogoff(void);
     
 private:
     std::string m_sUserName;              //用户名
@@ -67,12 +76,14 @@ private:
     bool m_bGender;                        //性别
     std::string m_sConstellation;         //星座
     int m_nUserAge;                        //年龄
+    int m_nUserID;                          //用户ID
     std::string m_sBirthday;               //生日
     std::string m_sProfesstion;             //职业
     std::string m_sMail;                //邮箱
     std::string m_sCellPhone;           //手机
     std::string m_sUserMessage;         //签名
     std::string m_sDescription;         //个人描述
+    std::string m_sUserHeaderImage;     //用户头像
     
     bool m_bIsLogin;
     static eBooksUserInfo* instance;

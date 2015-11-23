@@ -158,3 +158,13 @@ void eBooksSingleBookDetailInfo::setBookPublishDate(const char * publishDate)
     return this->setBookPublishDate(std::string(publishDate));
 }
 
+void eBooksSingleBookDetailInfo::setID(int id)
+{
+    this->m_bookID = id;
+    return ;
+}
+
+int eBooksSingleBookDetailInfo::getID(void)
+{
+    return this->m_bookID;
+}

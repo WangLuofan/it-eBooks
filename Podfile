@@ -9,5 +9,6 @@ target :'it-eBooks' do
 	pod 'MBProgressHUD'
 	pod 'SDWebImage’
 	pod ‘AFNetworking’	
+	pod 'Toast'
 
 end

@@ -8,11 +8,16 @@
 
 #import "eBooksUserHeaderView.h"
 #import "eBooksNetworkingHelper.h"
-#import "eBooksUserInfo.hpp"
-
+#import "eBooksUserRegistViewController.h"
 #import "eBooksPersonViewController.h"
+#import "eBooksUserBookStatusList.hpp"
+#import "eBooksTools.h"
 
 #import <MBProgressHUD.h>
+#import <UIButton+WebCache.h>
+#import <AssetsLibrary/AssetsLibrary.h>
+
+#include "eBooksUserInfo.hpp"
 
 #define kControlMargin 25
 #define kInfoLabelSize 25
@@ -26,8 +31,10 @@
     if(self) {
         [self setBackgroundColor:[UIColor brownColor]];
         
+        self.isOnlyChangeHeader = NO;
         self.backgroundImageView = [[UIImageView alloc] initWithFrame:self.bounds];
         [self.backgroundImageView setImage:[UIImage imageNamed:@"default_head"]];
+        [self.backgroundImageView setContentMode:UIViewContentModeScaleToFill];
         [self addSubview:self.backgroundImageView];
         
         self.effectView = [[UIVisualEffectView alloc] initWithEffect:[UIBlurEffect effectWithStyle:UIBlurEffectStyleLight]];
@@ -64,24 +71,55 @@
         [self.messageLabel setHidden:YES];
         [self.effectView addSubview:self.messageLabel];
     
+        self.imageFileName = @"default_head.png";
     }
-    
-    [self setUserInfo:@{@"headImage":[UIImage imageNamed:@"default_head"],
-                        @"userName":@"人生如梦",
-                        @"userMessage":@"逆天改命,再创世纪!!!!"}];
     return self;
 }
 
+-(void)setFrame:(CGRect)frame {
+    [super setFrame:frame];
+    [self.effectView setFrame:self.bounds];
+    [self.backgroundImageView setFrame:self.bounds];
+    [self.headImageView setCenter:CGPointMake(self.effectView.center.x, self.effectView.center.y)];
+    
+    return ;
+}
+
 -(void)changeHeadImage {
-    if(eBooksUserInfo::sharedInstance()->isUserLogin()) {
-        UIActionSheet* actionSheet = [[UIActionSheet alloc] initWithTitle:@"修改用户头像\n请选择头像图片来源" delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:@"注销" otherButtonTitles:@"相机",@"图库", nil];
+    if(_isOnlyChangeHeader) {
+        UIActionSheet* actionSheet = [[UIActionSheet alloc] initWithTitle:@"修改用户头像\n请选择头像图片来源" delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"相机",@"图库", nil];
         [actionSheet setTag:101];
         [actionSheet showInView:self];
     }else {
-        UIActionSheet* actionSheet = [[UIActionSheet alloc] initWithTitle:@"登陆?" delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:@"登陆" otherButtonTitles:@"注册", nil];
-        [actionSheet setTag:102];
-        [actionSheet showInView:self];
+        if(eBooksUserInfo::sharedInstance()->isUserLogin()) {
+            UIActionSheet* actionSheet = [[UIActionSheet alloc] initWithTitle:@"修改用户头像\n请选择头像图片来源" delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:@"注销" otherButtonTitles:@"相机",@"图库", nil];
+            [actionSheet setTag:102];
+            [actionSheet showInView:self];
+        }else {
+            UIActionSheet* actionSheet = [[UIActionSheet alloc] initWithTitle:@"登陆?" delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:@"登陆" otherButtonTitles:@"注册", nil];
+            [actionSheet setTag:103];
+            [actionSheet showInView:self];
+        }
     }
+    return ;
+}
+
+-(void)userLogin {
+    UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:@"登陆" message:nil delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"登陆", nil];
+    [alertView setAlertViewStyle:UIAlertViewStyleLoginAndPasswordInput];
+    NSUserDefaults* userDefaults = [NSUserDefaults standardUserDefaults];
+    if([userDefaults boolForKey:@"isRememberPassword"]) {
+        NSString* userName = [userDefaults objectForKey:@"userName"];
+        NSString* password = [userDefaults objectForKey:@"userPassword"];
+        
+        if(userName != nil && password != nil) {
+            [[alertView textFieldAtIndex:0] setText:userName];
+            [[alertView textFieldAtIndex:1] setText:password];
+        }
+        
+    }
+    
+    [alertView show];
     return ;
 }
 
@@ -91,13 +129,52 @@
         switch (buttonIndex) {
             case 0:
             {
-                eBooksUserInfo::sharedInstance()->changeLoginState(false);
-                [self setUserInfo:nil];
+                if(![UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+                    UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:@"错误" message:@"设备照相机不可用,请检查" delegate:nil cancelButtonTitle:@"好的" otherButtonTitles:nil];
+                    [alertView show];
+                    
+                    return ;
+                }
+                [pickerController setSourceType:UIImagePickerControllerSourceTypeCamera];
+            }
+                break;
+            case 1:
+            {
+                if(![UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary]) {
+                    UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:@"错误" message:@"设备图库不可用,请检查" delegate:nil cancelButtonTitle:@"好的" otherButtonTitles:nil];
+                    [alertView show];
+                    
+                    return ;
+                }
                 
+                [pickerController setSourceType:UIImagePickerControllerSourceTypePhotoLibrary];
+            }
+                break;
+            default:
+                return ;
+                break;
+        }
+        
+        [pickerController setDelegate:self];
+        UIResponder* responser = self.nextResponder;
+        while (![responser isKindOfClass:[UIViewController class]])
+            responser = responser.nextResponder;
+        [((UIViewController*)responser) presentViewController:pickerController animated:YES completion:nil];
+    }
+    else if(actionSheet.tag == 102) {
+        UIImagePickerController* pickerController = [[UIImagePickerController alloc] init];
+        switch (buttonIndex) {
+            case 0:
+            {
+                eBooksUserInfo::sharedInstance()->changeLoginState(false);
                 UIResponder* responder = self.nextResponder;
                 while(![responder isKindOfClass:[eBooksPersonViewController class]])
                     responder = responder.nextResponder;
                 [((eBooksPersonViewController*)responder).tableView setHidden:YES];
+                [self updateUserInfomation];
+                
+                UIAlertView* alertVIew = [[UIAlertView alloc] initWithTitle:@"消息" message:@"您已经成功注销" delegate:nil cancelButtonTitle:@"好的" otherButtonTitles: nil];
+                [alertVIew show];
                 
                 return ;
             }
@@ -138,25 +215,17 @@
     } else {
         switch (buttonIndex) {
             case 0:
-            {
-                UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:@"登陆" message:nil delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"登陆", nil];
-                [alertView setAlertViewStyle:UIAlertViewStyleLoginAndPasswordInput];
-                NSUserDefaults* userDefaults = [NSUserDefaults standardUserDefaults];
-                if([userDefaults boolForKey:@"isRememberPassword"]) {
-                    NSString* userName = [userDefaults objectForKey:@"userName"];
-                    NSString* password = [userDefaults objectForKey:@"userPassword"];
-                    
-                    if(userName != nil && password != nil) {
-                        [[alertView textFieldAtIndex:0] setText:userName];
-                        [[alertView textFieldAtIndex:1] setText:password];
-                    }
-                    
-                }
-                
-                [alertView show];
-            }
+                [self userLogin];
                 break;
             case 1:
+            {
+                eBooksUserRegistViewController* registViewController = [[eBooksUserRegistViewController alloc] init];
+                [registViewController setHidesBottomBarWhenPushed:YES];
+                UIResponder* responder = self.nextResponder;
+                while(![responder isKindOfClass:[UIViewController class]])
+                    responder = responder.nextResponder;
+                [((UIViewController*)responder).navigationController pushViewController:registViewController animated:YES];
+            }
                 break;
             default:
                 break;
@@ -166,30 +235,27 @@
     return ;
 }
 
--(void)setUserInfo:(NSDictionary *)userInfo {
+-(void)updateUserInfomation {
     if(eBooksUserInfo::sharedInstance()->isUserLogin()) {
         [UIView animateWithDuration:0.5f animations:^{
-            UIImage* headImage = (UIImage*)userInfo[@"headImage"];
-            if(headImage != nil)
-                [self.headImageView setBackgroundImage:headImage forState:UIControlStateNormal];
-            else
+            NSString* imageUrl = [NSString stringWithUTF8String:eBooksUserInfo::sharedInstance()->getUserHeaderImage().c_str()];
+            if ([[NSUserDefaults standardUserDefaults] boolForKey:@"isNoneImage"] == NO || [eBooksTools getCurrentNetworkType] == NetworkTypeWifi) {
+                [self.headImageView sd_setBackgroundImageWithURL:FILE_URL(imageUrl) forState:UIControlStateNormal placeholderImage:[UIImage imageNamed:@"default_head"] completed:^(UIImage *image, NSError *error,SDImageCacheType cacheType, NSURL *imageURL) {
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        [self.backgroundImageView setImage:image];
+                    });
+                }];
+            }else
                 [self.headImageView setBackgroundImage:[UIImage imageNamed:@"default_head"] forState:UIControlStateNormal];
-            [self.backgroundImageView setImage:headImage];
+            
             [self.headImageView setCenter:CGPointMake(self.effectView.bounds.size.width * 3 / 4, self.headImageView.center.y)];
         }];
         
         [UIView animateWithDuration:0.5f animations:^{
-            NSString* username = (NSString*)userInfo[@"userName"];
-            if(username != nil)
-                [self.usernameLabel setText:username];
-            
-            NSString* message = (NSString*)userInfo[@"userMessage"];
-            if(message != nil) {
-                [self.messageLabel setText:message];
-                CGFloat textHeight = [message boundingRectWithSize:CGSizeMake(self.usernameLabel.bounds.size.width, self.effectView.    bounds.size.height - self.messageLabel.frame.origin.y - kControlMargin) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:15.0f]} context:    nil].size.height;
-                [self.messageLabel setFrame:CGRectMake(self.messageLabel.frame.origin.x, self.messageLabel.frame.origin.y, self.    messageLabel.frame.size.width, textHeight)];
-            }else
-                [self.messageLabel setText:@"这家伙很懒,什么都没留下~"];
+            [self.usernameLabel setText:[NSString stringWithUTF8String:eBooksUserInfo::sharedInstance()->getNickName().c_str()]];
+            [self.messageLabel setText:(eBooksUserInfo::sharedInstance()->getUserMessage().length() == 0 ? @"这家伙很懒，什么都没有留下~" : [NSString stringWithUTF8String:eBooksUserInfo::sharedInstance()->getUserMessage().c_str()])];
+            CGFloat textHeight = [self.messageLabel.text boundingRectWithSize:CGSizeMake(self.usernameLabel.bounds.size.width, self.effectView.    bounds.size.height - self.messageLabel.frame.origin.y - kControlMargin) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:15.0f]} context:    nil].size.height;
+            [self.messageLabel setFrame:CGRectMake(self.messageLabel.frame.origin.x, self.messageLabel.frame.origin.y, self.    messageLabel.frame.size.width, textHeight)];
             
             [self.messageLabel setHidden:NO];
             [self.usernameLabel setHidden:NO];
@@ -199,7 +265,14 @@
             [self.usernameLabel setHidden:YES];
             [self.messageLabel setHidden:YES];
             [self.headImageView setBackgroundImage:[UIImage imageNamed:@"default_head"] forState:UIControlStateNormal];
+            [self.backgroundImageView setImage:[UIImage imageNamed:@"default_head"]];
             [self.headImageView setCenter:CGPointMake(self.effectView.center.x, self.headImageView.center.y)];
+            
+        } completion:^(BOOL finished) {
+            if(finished) {
+                eBooksUserInfo::sharedInstance()->userLogoff();
+                eBooksUserBookStatusList::getInstance()->clearAll();
+            }
         }];
     }
     
@@ -207,10 +280,28 @@
 }
 
 -(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
+    [picker dismissViewControllerAnimated:YES completion:nil];
     UIImage* pickedImage = (UIImage*)info[UIImagePickerControllerOriginalImage];
-    [picker dismissViewControllerAnimated:YES completion:^{
-        [self setUserInfo:@{@"headImage":pickedImage,@"userName":self.usernameLabel.text,@"userMessage":self.messageLabel.text}];
-    }];
+    if(!_isOnlyChangeHeader){
+        ALAssetsLibrary* library = [[ALAssetsLibrary alloc] init];
+        [library assetForURL:info[UIImagePickerControllerReferenceURL] resultBlock:^(ALAsset *asset) {
+            self.imageFileName = asset.defaultRepresentation.filename;
+            if(self.imageFileName == nil)
+                self.imageFileName = [self getImageFileName];
+            
+            [[eBooksNetworkingHelper getSharedInstance] UPLOADImageWithParams:@{@"image":pickedImage,@"name":self.imageFileName,@"_userID":[NSNumber numberWithInt:eBooksUserInfo::sharedInstance()->getUserID()]} Success:^(id responseObject) {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [self updateUserInfomation];
+                });
+            } Failure:^(NSError *error) {
+                return ;
+            }];
+        } failureBlock:^(NSError *error) {
+        }];
+    }else {
+        [self.headImageView setBackgroundImage:pickedImage forState:UIControlStateNormal];
+        [self.backgroundImageView setImage:pickedImage];
+    }
     
     return ;
 }
@@ -228,6 +319,17 @@
     }
     
     return ;
+}
+
+-(NSString*)getImageFileName {
+    CFUUIDRef uuidref = CFUUIDCreate(nil);
+    NSString* uuidStr = (__bridge_transfer NSString*)CFUUIDCreateString(nil, uuidref);
+    CFRelease(uuidref);
+    
+    NSDateFormatter* formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"yyyyMMddHHmmss"];
+    
+    return [uuidStr stringByAppendingString:[NSString stringWithFormat:@"_%@.jpg",[formatter stringFromDate:[NSDate date]]]];;
 }
 
 @end

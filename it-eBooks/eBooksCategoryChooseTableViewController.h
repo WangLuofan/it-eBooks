@@ -11,6 +11,7 @@
 class eBooksCategoryList;
 @interface eBooksCategoryChooseTableViewController : UIViewController <UITableViewDataSource,UITableViewDelegate> {
     eBooksCategoryList* m_booksCategoryList;
+    int* selectedItems;
 }
 
 @property(nonatomic,strong) UITableView* tableView;

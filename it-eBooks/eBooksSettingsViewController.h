@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface eBooksSettingsViewController : UIViewController <UITableViewDataSource,UITableViewDelegate>
+@interface eBooksSettingsViewController : UIViewController <UITableViewDataSource,UITableViewDelegate,UIAlertViewDelegate>
 
 @property(nonatomic,strong) UITableView* tableView;
 
