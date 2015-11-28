@@ -27,8 +27,11 @@ public:
     void setBookID(int);
     std::string getBookTitle(void);
     void setBookTitle(std::string);
+    void setDownloadPersent(double);
+    double getDownloadPersent(void);
 private:
     int m_bookID;
+    double m_downloadPersent;
     int m_singleBookStatus;
     std::string m_bookTitle;
 };

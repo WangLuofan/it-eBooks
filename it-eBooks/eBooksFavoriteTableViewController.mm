@@ -46,7 +46,7 @@
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return eBooksUserBookStatusList::getInstance()->getSize();
+    return eBooksUserBookStatusList::getInstance()->getItemCountByStatus(eBooksUserBookState::STATE_FAVORITED);
 }
 
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {

@@ -19,9 +19,13 @@ eBooksUserBookStatusList* eBooksUserBookStatusList::getInstance(void)
     return m_Instance;
 }
 
-void eBooksUserBookStatusList::addItem(eBooksUserBookStatus & item)
+void eBooksUserBookStatusList::addItem(eBooksUserBookStatus& item,bool bMergeStatusIfExists)
 {
-    this->m_StatusList.push_back(item);
+    int index = this->findItemByID(item.getBookID());
+    if(index != -1 && bMergeStatusIfExists)
+        this->m_StatusList[index].addSingleBookStatus(item.getSingleBookStatus());
+    else if(index == -1)
+        this->m_StatusList.push_back(item);
     return ;
 }
 
@@ -69,6 +73,34 @@ eBooksUserBookStatus eBooksUserBookStatusList::getItemByID(int bookID)
     for(auto iter = this->m_StatusList.begin(); iter != this->m_StatusList.end(); ++iter)
         if(iter->getBookID() == bookID) {
             status = *iter;
+            break;
         }
     return status;
+}
+
+int eBooksUserBookStatusList::getItemCountByStatus(int status)
+{
+    int count = 0;
+    for(auto iter = this->m_StatusList.begin(); iter != this->m_StatusList.end(); ++iter)
+    {
+        if((*iter).isExistsStatus(status))
+            ++count;
+    }
+    
+    return count;
+}
+
+int eBooksUserBookStatusList::findItemByID(int bookID)
+{
+    int index = -1;
+    for (int i = 0; i != this->m_StatusList.size(); ++i)
+    {
+        if(bookID == this->m_StatusList[i].getBookID())
+        {
+            index = i;
+            break;
+        }
+    }
+    
+    return index;
 }

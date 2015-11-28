@@ -11,8 +11,6 @@
 #define BUTTON_WIDTH 60
 
 @interface eBooksFavoriteTableViewCell () {
-    UIView* bottomButtonView;
-    UIView* topTableViewCellContentView;
     CGFloat topTableViewCellContentViewPreviousPosition;
 }
 
@@ -26,19 +24,19 @@
     if(self) {
         [self setSelectionStyle:UITableViewCellSelectionStyleNone];
         
-        bottomButtonView = [[UIView alloc] init];
-        [self.contentView addSubview:bottomButtonView];
+        self.bottomButtonView = [[UIView alloc] init];
+        [self.contentView addSubview:self.bottomButtonView];
         
-        topTableViewCellContentView = [[UIView alloc] init];
-        [topTableViewCellContentView setBackgroundColor:[UIColor whiteColor]];
-        [self.contentView addSubview:topTableViewCellContentView];
+        self.topTableViewCellContentView = [[UIView alloc] init];
+        [self.topTableViewCellContentView setBackgroundColor:[UIColor whiteColor]];
+        [self.contentView addSubview:self.topTableViewCellContentView];
         
         self.bookNameLabel = [[UILabel alloc] init];
-        [topTableViewCellContentView addSubview:self.bookNameLabel];
+        [self.topTableViewCellContentView addSubview:self.bookNameLabel];
         
         [self addGestureRecognizer:[[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panGestureRecognizer:)]];
         
-        [self setFavoriteTableViewCellEditButtonWithItemsTitle:@"删除", @"下载", @"详情", nil];
+        [self setTableViewCellEditButtonWithItemsTitle:@"删除", @"下载", @"详情", nil];
     }
     
     return self;
@@ -49,21 +47,21 @@
         topTableViewCellContentViewPreviousPosition = [recognizer translationInView:self.contentView].x;
     }else if(recognizer.state == UIGestureRecognizerStateChanged) {
         CGFloat position = [recognizer translationInView:self.contentView].x;
-        CGFloat xoffset = topTableViewCellContentView.frame.origin.x + position -topTableViewCellContentViewPreviousPosition;
+        CGFloat xoffset = self.topTableViewCellContentView.frame.origin.x + position -topTableViewCellContentViewPreviousPosition;
         
-        if(xoffset > 0 || xoffset < -bottomButtonView.frame.size.width)
+        if(xoffset > 0 || xoffset < -self.bottomButtonView.frame.size.width)
             return ;
         
-        [topTableViewCellContentView setFrame:CGRectMake(xoffset, 0, topTableViewCellContentView.bounds.size.width, topTableViewCellContentView.bounds.size.height)];
+        [self.topTableViewCellContentView setFrame:CGRectMake(xoffset, 0, self.topTableViewCellContentView.bounds.size.width, self.topTableViewCellContentView.bounds.size.height)];
         topTableViewCellContentViewPreviousPosition = position;
     }else if(recognizer.state == UIGestureRecognizerStateEnded) {
-        if(topTableViewCellContentView.frame.origin.x > - bottomButtonView.frame.size.width / 2)
+        if(self.topTableViewCellContentView.frame.origin.x > - self.bottomButtonView.frame.size.width / 2)
             [UIView animateWithDuration:0.2f animations:^{
-                [topTableViewCellContentView setFrame:self.contentView.bounds];
+                [self.topTableViewCellContentView setFrame:self.contentView.bounds];
             }];
         else
             [UIView animateWithDuration:0.2f animations:^{
-                [topTableViewCellContentView setFrame:CGRectMake(-bottomButtonView.frame.size.width, 0, topTableViewCellContentView.frame.size.width, topTableViewCellContentView.frame.size.height)];
+                [self.topTableViewCellContentView setFrame:CGRectMake(-self.bottomButtonView.frame.size.width, 0, self.topTableViewCellContentView.frame.size.width, self.topTableViewCellContentView.frame.size.height)];
             }];
     }
     
@@ -73,17 +71,17 @@
 -(void)layoutSubviews {
     [super layoutSubviews];
     
-    [bottomButtonView setFrame:CGRectMake(self.contentView.frame.size.width - editButtonArray.count*BUTTON_WIDTH, 0, editButtonArray.count*BUTTON_WIDTH, self.contentView.frame.size.height)];
-    [topTableViewCellContentView setFrame:self.contentView.bounds];
+    [self.bottomButtonView setFrame:CGRectMake(self.contentView.frame.size.width - editButtonArray.count*BUTTON_WIDTH, 0, editButtonArray.count*BUTTON_WIDTH, self.contentView.frame.size.height)];
+    [self.topTableViewCellContentView setFrame:self.contentView.bounds];
     [self.bookNameLabel setFrame:CGRectMake(20,0,0,0)];
     [self.bookNameLabel sizeToFit];
-    [self.bookNameLabel setCenter:CGPointMake(self.bookNameLabel.center.x, topTableViewCellContentView.center.y)];
+    [self.bookNameLabel setCenter:CGPointMake(self.bookNameLabel.center.x, self.topTableViewCellContentView.center.y)];
 
     [self addItems];
     return ;
 }
 
--(void)setFavoriteTableViewCellEditButtonWithItemsTitle:(NSString *)itemTitle, ... {
+-(void)setTableViewCellEditButtonWithItemsTitle:(NSString *)itemTitle, ... {
     if(editButtonArray == nil)
         editButtonArray = [[NSMutableArray alloc] init];
     
@@ -100,7 +98,7 @@
     return ;
 }
 
--(void)setFavoriteTableViewCellEditButtonWithItemsArray:(NSArray *)itemArray {
+-(void)setTableViewCellEditButtonWithItemsArray:(NSArray *)itemArray {
     editButtonArray = [[NSMutableArray alloc] initWithArray:itemArray];
     return ;
 }
@@ -108,13 +106,13 @@
 -(void)addItems {
     assert(editButtonArray.count != 0);
     
-    [bottomButtonView.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
+    [self.bottomButtonView.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
     
     BOOL isFirstItem = YES;
-    CGFloat xOffset = bottomButtonView.frame.size.width - BUTTON_WIDTH;
+    CGFloat xOffset = self.bottomButtonView.frame.size.width - BUTTON_WIDTH;
     for (NSString* title in editButtonArray) {
         UIButton* button = [UIButton buttonWithType:UIButtonTypeCustom];
-        [button setTag:bottomButtonView.subviews.count];
+        [button setTag:self.bottomButtonView.subviews.count];
         [button setTitle:title forState:UIControlStateNormal];
         [button addTarget:self action:@selector(buttonPressed:) forControlEvents:UIControlEventTouchUpInside];
         if(isFirstItem) {
@@ -123,9 +121,9 @@
         }else{
             [button setBackgroundColor:[UIColor colorWithRed:((CGFloat)(arc4random() % 255)) / 255.0 green:((CGFloat)(arc4random() % 255)) / 255.0 blue:((CGFloat)(arc4random() % 255)) / 255.0 alpha:1.0f]];
         }
-        [button setFrame:CGRectMake(xOffset, 0, BUTTON_WIDTH, bottomButtonView.frame.size.height)];
+        [button setFrame:CGRectMake(xOffset, 0, BUTTON_WIDTH, self.bottomButtonView.frame.size.height)];
         xOffset -= BUTTON_WIDTH;
-        [bottomButtonView addSubview:button];
+        [self.bottomButtonView addSubview:button];
     }
     
     return ;
@@ -133,7 +131,7 @@
 
 -(void)buttonPressed:(UIButton*)sender {
     [UIView animateWithDuration:0.2f animations:^{
-        [topTableViewCellContentView setFrame:self.contentView.bounds];
+        [self.topTableViewCellContentView setFrame:self.contentView.bounds];
     }];
     if([self.delegate respondsToSelector:@selector(tableViewCell:buttonIndex:)])
         [self.delegate tableViewCell:self buttonIndex:sender.tag];

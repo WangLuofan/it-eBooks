@@ -13,10 +13,10 @@ eBooksUserBookStatus::eBooksUserBookStatus()
 {}
 
 eBooksUserBookStatus::eBooksUserBookStatus(int id,std::string title)
-    :m_bookID(id),m_bookTitle(title) {}
+    :m_bookID(id),m_bookTitle(title),m_singleBookStatus(eBooksUserBookState::STATE_NONE) {}
 
 eBooksUserBookStatus::eBooksUserBookStatus(int id,const char* title)
-    :m_bookID(id),m_bookTitle(std::string(title)) {}
+    :m_bookID(id),m_bookTitle(std::string(title)),m_singleBookStatus(eBooksUserBookState::STATE_NONE) {}
 
 bool eBooksUserBookStatus::isExistsStatus(int status)
 {
@@ -56,4 +56,14 @@ void eBooksUserBookStatus::setBookTitle(std::string title)
 {
     this->m_bookTitle = title;
     return ;
+}
+
+double eBooksUserBookStatus::getDownloadPersent(void)
+{
+    return this->m_downloadPersent;
+}
+
+void eBooksUserBookStatus::setDownloadPersent(double value)
+{
+    this->m_downloadPersent = value;
 }

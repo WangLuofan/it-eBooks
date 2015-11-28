@@ -13,7 +13,7 @@ typedef void(^ResponseSuccessBlock)(id responseObject);
 typedef void(^ResponseFailureBlock) (NSError* error);
 
 @interface eBooksNetworkingHelper : NSObject {
-    NSMutableArray* operationArray;
+    NSMutableArray* downloadTaskingsArray;
 }
 
 +(eBooksNetworkingHelper*)getSharedInstance;

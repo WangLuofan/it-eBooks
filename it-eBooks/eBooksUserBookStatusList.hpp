@@ -16,11 +16,13 @@
 class eBooksUserBookStatusList
 {
 public:
+    int getItemCountByStatus(int);
     static eBooksUserBookStatusList* getInstance(void);
     eBooksUserBookStatus getItemAtIndex(int);
+    int findItemByID(int);
     eBooksUserBookStatus getItemByID(int);
     bool existItem(int);
-    void addItem(eBooksUserBookStatus&);
+    void addItem(eBooksUserBookStatus&,bool bMergeStatusIfExists = true);
     void removeItem(int);
     void clearAll(void);
     size_t getSize(void);

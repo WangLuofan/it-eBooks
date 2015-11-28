@@ -239,7 +239,21 @@
             
         }else if(button.tag == 1) {
             //下载书籍
+            hud = [[MBProgressHUD alloc] initWithView:self.view];
+            [hud setRemoveFromSuperViewOnHide:YES];
+            [self.view addSubview:hud];
+            [hud show:YES];
+            
             [[eBooksNetworkingHelper getSharedInstance] startDownloadWithBookInfo:bookDetailInfo];
+            
+            [hud setMode:MBProgressHUDModeText];
+            [hud setLabelText:@"已成功添加到下载队列"];
+            [hud show:YES];
+            [hud hide:YES afterDelay:1.0f];
+            
+            [button setTitle:@"正在下载" forState:UIControlStateNormal];
+            [button setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
+            [button setEnabled:NO];
         }else {
             eBooksPreviewController* preViewController = [[eBooksPreviewController alloc] initWithFileUrl:FILE_URL([NSString stringWithUTF8String:bookDetailInfo->getBookDownloadUrl().c_str()])];
             [preViewController setTitle:[NSString stringWithUTF8String:bookDetailInfo->getBookTitle().c_str()]];

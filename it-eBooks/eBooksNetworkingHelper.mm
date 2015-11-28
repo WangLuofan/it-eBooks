@@ -7,11 +7,14 @@
 //
 
 #import "eBooksNetworkingHelper.h"
+#import "eBooksDownloadingTask.h"
+
 #import <AFNetworking.h>
 #import <MBProgressHUD.h>
 
 #include "eBooksUserInfo.hpp"
 #include "eBooksSingleBookDetailInfo.hpp"
+#include "eBooksUserBookStatusList.hpp"
 
 static eBooksNetworkingHelper* networkingHelper;
 @implementation eBooksNetworkingHelper
@@ -19,7 +22,7 @@ static eBooksNetworkingHelper* networkingHelper;
 -(instancetype)init {
     self = [super init];
     if(self) {
-        operationArray = [[NSMutableArray alloc] init];
+        downloadTaskingsArray = [[NSMutableArray alloc] init];
     }
     return self;
 }
@@ -118,39 +121,15 @@ static eBooksNetworkingHelper* networkingHelper;
 }
 
 -(void)startDownloadWithBookInfo:(eBooksSingleBookDetailInfo *)bookDetailInfo {
-    NSString* downloadDir = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject] stringByAppendingPathComponent:[NSString stringWithFormat:@"%d",eBooksUserInfo::sharedInstance()->getUserID()]];
-    if(![[NSFileManager defaultManager] fileExistsAtPath:downloadDir])
-        [[NSFileManager defaultManager] createDirectoryAtPath:downloadDir withIntermediateDirectories:YES attributes:nil error:nil];
-    NSString* downloadUrl = [NSString stringWithUTF8String:bookDetailInfo->getBookDownloadUrl().c_str()];
-    NSURLRequest* downloadRequest = [NSURLRequest requestWithURL:FILE_URL(downloadUrl)];
-    if([[NSFileManager defaultManager] fileExistsAtPath:downloadDir]) {
-        unsigned long long downloadFileSize = [self getFileSize:downloadDir];
-        NSMutableURLRequest* mutableRequest = [downloadRequest mutableCopy];
-        NSString *requestRange = [NSString stringWithFormat:@"bytes=%llu-", downloadFileSize];
-        [mutableRequest setValue:requestRange forHTTPHeaderField:@"Range"];
-        downloadRequest = [mutableRequest copy];
-    }
-    [[NSURLCache sharedURLCache] removeCachedResponseForRequest:downloadRequest];
-    NSURLSessionConfiguration* configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
-    AFURLSessionManager* manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
-    NSURLSessionDownloadTask* downloadTask = [manager downloadTaskWithRequest:downloadRequest progress:nil destination:^NSURL * _Nonnull(NSURL * _Nonnull targetPath, NSURLResponse * _Nonnull response) {
-        NSURL* fileUrl = [[NSFileManager defaultManager] URLForDirectory:NSDocumentDirectory inDomain:NSUserDomainMask appropriateForURL:nil create:NO error:nil];
-        return [fileUrl URLByAppendingPathComponent:[NSString stringWithFormat:@"%d/%@.pdf",eBooksUserInfo::sharedInstance()->getUserID(),[NSString stringWithUTF8String:bookDetailInfo->getBookTitle().c_str()]]];
-    } completionHandler:^(NSURLResponse * _Nonnull response, NSURL * _Nonnull filePath, NSError * _Nonnull error) {
-        if(!error)
-            NSLog(@"%@",filePath);
-        return ;
-    }];
+    eBooksDownloadingTask* downloadingTask = [[eBooksDownloadingTask alloc] initWithDownloadURL:FILE_URL_STRING([NSString stringWithUTF8String:bookDetailInfo->getBookDownloadUrl().c_str()]) UserID:eBooksUserInfo::sharedInstance()->getUserID() BookTitle:[NSString stringWithUTF8String:bookDetailInfo->getBookTitle().c_str()]];
     
-    [downloadTask resume];
-    return ;
-}
-
--(void)pauseDownload {
-    return ;
-}
-
--(void)stopDownload {
+    //修改书籍状态
+    eBooksUserBookStatus status(bookDetailInfo->getID(),bookDetailInfo->getBookTitle());
+    status.addSingleBookStatus(eBooksUserBookState::STATE_DOWNLOADING);
+    eBooksUserBookStatusList::getInstance()->addItem(status);
+    [downloadTaskingsArray addObject:downloadingTask];
+    
+    [downloadingTask startTask];
     return ;
 }
 

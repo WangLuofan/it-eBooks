@@ -22,10 +22,12 @@
 
 @property(nonatomic,assign) id<eBooksFavoriteTableViewCellDelegate> delegate;
 @property(nonatomic,strong) UILabel* bookNameLabel;
+@property(nonatomic,strong) UIView* bottomButtonView;
+@property(nonatomic,strong) UIView* topTableViewCellContentView;
 
 -(instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier;
--(void)setFavoriteTableViewCellEditButtonWithItemsTitle:(NSString*)itemTitle,...NS_REQUIRES_NIL_TERMINATION;
--(void)setFavoriteTableViewCellEditButtonWithItemsArray:(NSArray*)itemArray;
+-(void)setTableViewCellEditButtonWithItemsTitle:(NSString*)itemTitle,...NS_REQUIRES_NIL_TERMINATION;
+-(void)setTableViewCellEditButtonWithItemsArray:(NSArray*)itemArray;
 -(void)setBookName:(NSString*)bookName;
 
 @end

@@ -88,6 +88,12 @@
     // Override point for customization after application launch.
     [NSThread sleepForTimeInterval:1.0f];
     
+    //注册本地通知
+    if([[UIApplication sharedApplication] respondsToSelector:@selector(registerUserNotificationSettings:)]) {
+        UIUserNotificationSettings* settings = [UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert | UIUserNotificationTypeBadge | UIUserNotificationTypeSound categories:nil];
+        [[UIApplication sharedApplication] registerUserNotificationSettings:settings];
+    }
+    
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(networkStatusChanged:) name:kReachabilityChangedNotification object:nil];
     self.reachability = [Reachability reachabilityWithHostName:BASE_URL_SERVER];
     [self.reachability startNotifier];
@@ -127,6 +133,18 @@
         [self.window makeToast:@"注意\n您已切换非WIFI环境，将产生流量费用" duration:2.0f position:CSToastPositionCenter];
     }else {
         [self.window makeToast:@"当前已断开网络连接" duration:2.0f position:CSToastPositionCenter];
+    }
+    
+    return ;
+}
+
+//收到本地通知
+-(void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification {
+    [application setApplicationIconBadgeNumber:0];
+    //如果程序在前台执行，则弹出提示框
+    if(application.applicationState == UIApplicationStateActive) {
+        UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:@"通知" message:notification.alertBody delegate:nil cancelButtonTitle:@"取消" otherButtonTitles:@"查看", nil];
+        [alertView show];
     }
     
     return ;

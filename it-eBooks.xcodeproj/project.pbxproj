@@ -27,6 +27,8 @@
 		B32750551BC0114100DC81F8 /* it_eBooksUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = B32750541BC0114100DC81F8 /* it_eBooksUITests.m */; };
 		B334D1EA1BE3CCAF007D9671 /* eBooksTools.mm in Sources */ = {isa = PBXBuildFile; fileRef = B334D1E91BE3CCAF007D9671 /* eBooksTools.mm */; };
 		B346BD3C1BD351C800C994BE /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = B346BD3B1BD351C800C994BE /* Reachability.m */; };
+		B34F34761C09B9D200E170BB /* eBooksDownloadTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B34F34751C09B9D200E170BB /* eBooksDownloadTableViewCell.m */; };
+		B34F347E1C09F21A00E170BB /* eBooksDownloadingTask.m in Sources */ = {isa = PBXBuildFile; fileRef = B34F347D1C09F21A00E170BB /* eBooksDownloadingTask.m */; };
 		B366027E1BDF9D6A0007D5D7 /* eBooksUserRegistViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = B366027D1BDF9D6A0007D5D7 /* eBooksUserRegistViewController.mm */; };
 		B36B6FB31BCE6ACA0058BCF5 /* eBooksPreviewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = B36B6FB21BCE6ACA0058BCF5 /* eBooksPreviewController.mm */; };
 		B3963D761BCA8E2F0018215B /* eBooksSettingsViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = B3963D751BCA8E2F0018215B /* eBooksSettingsViewController.mm */; };
@@ -109,6 +111,10 @@
 		B346BD3A1BD351C800C994BE /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		B346BD3B1BD351C800C994BE /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		B34A41141BCD487800A63691 /* QuickLook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuickLook.framework; path = System/Library/Frameworks/QuickLook.framework; sourceTree = SDKROOT; };
+		B34F34741C09B9D200E170BB /* eBooksDownloadTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = eBooksDownloadTableViewCell.h; sourceTree = "<group>"; };
+		B34F34751C09B9D200E170BB /* eBooksDownloadTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = eBooksDownloadTableViewCell.m; sourceTree = "<group>"; };
+		B34F347C1C09F21A00E170BB /* eBooksDownloadingTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = eBooksDownloadingTask.h; sourceTree = "<group>"; };
+		B34F347D1C09F21A00E170BB /* eBooksDownloadingTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = eBooksDownloadingTask.m; sourceTree = "<group>"; };
 		B35BC2491BD14F1B00CE4FD3 /* libcommonCrypto.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libcommonCrypto.tbd; path = usr/lib/system/libcommonCrypto.tbd; sourceTree = SDKROOT; };
 		B366027C1BDF9D6A0007D5D7 /* eBooksUserRegistViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = eBooksUserRegistViewController.h; sourceTree = "<group>"; };
 		B366027D1BDF9D6A0007D5D7 /* eBooksUserRegistViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = eBooksUserRegistViewController.mm; sourceTree = "<group>"; };
@@ -277,6 +283,7 @@
 		B305E84F1BC0A76500F16779 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				B34F34781C09EC1300E170BB /* Downloading */,
 				B305E8511BC0A79E00F16779 /* eBooksNetworkingHelper.h */,
 				B305E8521BC0A79E00F16779 /* eBooksNetworkingHelper.mm */,
 			);
@@ -410,6 +417,24 @@
 				B36B6FB21BCE6ACA0058BCF5 /* eBooksPreviewController.mm */,
 			);
 			name = PDFPreview;
+			sourceTree = "<group>";
+		};
+		B34F34771C09B9DB00E170BB /* Download */ = {
+			isa = PBXGroup;
+			children = (
+				B34F34741C09B9D200E170BB /* eBooksDownloadTableViewCell.h */,
+				B34F34751C09B9D200E170BB /* eBooksDownloadTableViewCell.m */,
+			);
+			name = Download;
+			sourceTree = "<group>";
+		};
+		B34F34781C09EC1300E170BB /* Downloading */ = {
+			isa = PBXGroup;
+			children = (
+				B34F347C1C09F21A00E170BB /* eBooksDownloadingTask.h */,
+				B34F347D1C09F21A00E170BB /* eBooksDownloadingTask.m */,
+			);
+			name = Downloading;
 			sourceTree = "<group>";
 		};
 		B366027B1BDF9D530007D5D7 /* Regist */ = {
@@ -599,6 +624,7 @@
 		B3F8AFA31BD3AC13002369FE /* Me */ = {
 			isa = PBXGroup;
 			children = (
+				B34F34771C09B9DB00E170BB /* Download */,
 				B3A770E61BE4664B00FBE174 /* Favorite */,
 				B3EA000F1BE0E24400B0FCAF /* Regist */,
 			);
@@ -787,9 +813,11 @@
 				B3E3616A1BC6A8B000405D4B /* eBooksSingleBookDetailTableViewCell.m in Sources */,
 				B3E61DF31BF7439A002E8673 /* eBooksUserBookStatusList.cpp in Sources */,
 				B3E361691BC6A8B000405D4B /* eBooksSingleBookDetailTableHeaderViewCell.m in Sources */,
+				B34F347E1C09F21A00E170BB /* eBooksDownloadingTask.m in Sources */,
 				B346BD3C1BD351C800C994BE /* Reachability.m in Sources */,
 				B3F1556D1BEF5F64006F9875 /* eBooksRecommendList.cpp in Sources */,
 				B3D340171BC2BF8E00151917 /* eBooksSearchResultList.cpp in Sources */,
+				B34F34761C09B9D200E170BB /* eBooksDownloadTableViewCell.m in Sources */,
 				B301476F1BC2568700DE17C3 /* eBooksSearchKeywordLabelView.m in Sources */,
 				B3E361751BC6BA8000405D4B /* eBooksImagePreviewController.m in Sources */,
 				B305E8441BC0A6B900F16779 /* eBooksRecommendViewController.mm in Sources */,
